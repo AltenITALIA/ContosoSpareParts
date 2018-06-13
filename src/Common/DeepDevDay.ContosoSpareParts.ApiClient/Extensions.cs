@@ -12,6 +12,8 @@ namespace Microsoft.Extensions.DependencyInjection
         public static void AddApiClient(this IServiceCollection services)
         {
             services.AddHttpClient("history", ConfigureClient).AddTypedClient(c => Refit.RestService.For<IHistoryClient>(c));
+            services.AddHttpClient("vehicle", ConfigureClient).AddTypedClient(c => Refit.RestService.For<IVehicleClient>(c));
+            services.AddHttpClient("part", ConfigureClient).AddTypedClient(c => Refit.RestService.For<IPartClient>(c));
         }
 
         private static void ConfigureClient(IServiceProvider provider, System.Net.Http.HttpClient client)
