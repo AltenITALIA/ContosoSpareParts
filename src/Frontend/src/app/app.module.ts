@@ -11,8 +11,9 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { VehiclesComponent } from './components/vehicles/vehicles.component';
 import { PartsComponent } from './components/parts/parts.component';
 import { VeicleHistoryComponent } from './components/veicle-history/veicle-history.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { ProgressComponent } from './components/progress/progress.component';
+import{ ContosoHttpInterceptor} from '../app/services/contoso-http-interceptor'
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     DashboardComponent,
     VehiclesComponent,
     PartsComponent,
-    VeicleHistoryComponent
+    VeicleHistoryComponent,
+    ProgressComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +40,10 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     MatProgressBarModule,
     HttpClientModule
   ],
-  providers: [MatIconRegistry],
+  providers: [MatIconRegistry,
+  {  provide: HTTP_INTERCEPTORS,
+    useExisting: ContosoHttpInterceptor,
+    multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
