@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DeepDevDay.ContosoSpareParts.ApiModel
+namespace SpareParts.ApiModel
 {
     public static class Extensions
     {

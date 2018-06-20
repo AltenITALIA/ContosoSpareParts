@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DeepDevDay.ContosoSpareParts.ApiModel.Parts
+namespace SpareParts.ApiModel.Parts
 {
     public partial class AddPart
     {

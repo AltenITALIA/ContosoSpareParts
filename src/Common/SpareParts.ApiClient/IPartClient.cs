@@ -1,14 +1,14 @@
-﻿using DeepDevDay.ContosoSpareParts.ApiModel.History;
+﻿using SpareParts.ApiModel.History;
 using Refit;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
-using DeepDevDay.ContosoSpareParts.ApiModel.Parts;
-using DeepDevDay.ContosoSpareParts.ApiModel.Vehicles;
+using SpareParts.ApiModel.Parts;
+using SpareParts.ApiModel.Vehicles;
 
-namespace DeepDevDay.ContosoSpareParts.ApiClient
+namespace SpareParts.ApiClient
 {
     public interface IPartClient
     {

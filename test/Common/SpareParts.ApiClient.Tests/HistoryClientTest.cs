@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
-namespace DeepDevDay.ContosoSpareParts.ApiClient.Tests
+namespace SpareParts.ApiClient.Tests
 {
     public class HistoryClientTest : TestBase
     {

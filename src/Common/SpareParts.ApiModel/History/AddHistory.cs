@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DeepDevDay.ContosoSpareParts.ApiModel.History
+namespace SpareParts.ApiModel.History
 {
     public partial class AddHistory
     {
@@ -16,6 +16,6 @@ namespace DeepDevDay.ContosoSpareParts.ApiModel.History
 
     public partial class AddHistory
     {
-        public static AddHistory FromJson(string json) => JsonConvert.DeserializeObject<AddHistory>(json, DeepDevDay.ContosoSpareParts.ApiModel.Converter.Settings);
+        public static AddHistory FromJson(string json) => JsonConvert.DeserializeObject<AddHistory>(json, SpareParts.ApiModel.Converter.Settings);
     }
 }
