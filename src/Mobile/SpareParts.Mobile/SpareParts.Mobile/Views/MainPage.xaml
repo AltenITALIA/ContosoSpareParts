@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<common:ContentPageBase
+    x:Class="SpareParts.Mobile.Views.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:behaviors="clr-namespace:SpareParts.Mobile.Behaviors"
+    xmlns:common="clr-namespace:SpareParts.Mobile.Common"
+    xmlns:local="clr-namespace:SpareParts.Mobile"
+    Title="Spare Parts"
+    BindingContext="{Binding Source={StaticResource Locator}, Path=MainViewModel}">
+
+    <Grid Style="{StaticResource MasterGridStyle}">
+        <Grid Style="{StaticResource ContentListGridStyle}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <SearchBar
+                Grid.Row="0"
+                Placeholder="Cerca..."
+                Text="{Binding SearchText}">
+                <SearchBar.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="UWP, iOS">-10,0,0,0</On>
+                        <On Platform="Android">-15,0,0,0</On>
+                    </OnPlatform>
+                </SearchBar.Margin>
+            </SearchBar>
+
+            <ListView
+                Grid.Row="1"
+                CachingStrategy="RecycleElement"
+                HasUnevenRows="True"
+                IsPullToRefreshEnabled="True"
+                IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}"
+                ItemsSource="{Binding Incarichi}"
+                RefreshCommand="{Binding RefreshCommand}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Margin="10,10,10,0" />
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.Behaviors>
+                    <behaviors:ListViewItemTappedBehavior Command="{Binding ItemTappedCommand}" />
+                </ListView.Behaviors>
+            </ListView>
+        </Grid>
+
+        <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />
+    </Grid>
+</common:ContentPageBase>
