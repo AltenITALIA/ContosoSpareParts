@@ -69,6 +69,7 @@ namespace SpareParts.Mobile.ViewModels
                 else if (Vehicles.Count() == 1)
                 {
                     // E' stato trovato un solo veicolo, quindi passa direttamente alla pagina di dettaglio relativa.
+                    await Task.Delay(500);
                     await GotoVehicleHistoryAsync(Vehicles.First());
                 }
             }

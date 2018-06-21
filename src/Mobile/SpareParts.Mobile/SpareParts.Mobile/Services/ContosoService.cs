@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SpareParts.ApiClient;
+using SpareParts.ApiModel.History;
 using SpareParts.ApiModel.Vehicles;
 
 namespace SpareParts.Mobile.Services
@@ -24,6 +25,12 @@ namespace SpareParts.Mobile.Services
         {
             var vehicle = await vehicleClient.GetByPlateAsync(plate);
             return new List<GetVehicle>() { vehicle };
+        }
+
+        public async Task<IEnumerable<GetHistory>> GetHistoryAsync(GetVehicle vehicle)
+        {
+            var history = await historyClient.GetByVehicleAsync(vehicle.Id);
+            return history;
         }
 
         public async Task AddHistoryAsync(GetVehicle vehicle, string partCode, string filePath)

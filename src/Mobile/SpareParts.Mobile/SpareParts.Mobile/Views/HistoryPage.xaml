@@ -51,9 +51,6 @@
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
-                <ListView.Behaviors>
-                    <behaviors:ListViewItemTappedBehavior Command="{Binding ItemTappedCommand}" />
-                </ListView.Behaviors>
             </ListView>
         </Grid>
 

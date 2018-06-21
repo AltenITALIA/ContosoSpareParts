@@ -63,11 +63,16 @@ namespace SpareParts.Mobile.ViewModels
         {
             TakePhotoCommand = new AutoRelayCommand(async () => await AnalyzePhotoAsync(() => mediaService.TakePhotoAsync()));
             PickPhotoCommand = new AutoRelayCommand(async () => await AnalyzePhotoAsync(() => mediaService.PickPhotoAsync()));
+            RefreshCommand = new AutoRelayCommand(async () => await RefreshAsync(), () => !IsBusy).DependsOn(nameof(IsBusy));
         }
 
-        public override void Activate(object parameter)
+        public override async void Activate(object parameter)
         {
             Vehicle = parameter as GetVehicle;
+            History = null;
+
+            await RefreshAsync();
+
             base.Activate(parameter);
         }
 
@@ -99,7 +104,7 @@ namespace SpareParts.Mobile.ViewModels
 
             try
             {
-                //History = await contosoService.
+                History = await contosoService.GetHistoryAsync(vehicle);
             }
             catch (Exception ex)
             {

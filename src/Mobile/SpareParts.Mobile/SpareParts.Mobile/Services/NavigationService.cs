@@ -108,14 +108,6 @@ namespace SpareParts.Mobile.Services
                     if (clearStackLevel == null)
                     {
                         displayPage.SetNavigationArgs(parameter);
-                        //navigation.InsertPageBefore(displayPage, MainPage.Navigation.NavigationStack[0]);
-
-                        // Since we want to clear history, removes all the other pages from the navigation stack.
-                        //var existingPages = navigation.NavigationStack.ToList();
-                        //for (var i = 1; i < existingPages.Count; i++)
-                        //{
-                        //    navigation.RemovePage(existingPages[i]);
-                        //}
                         MainPage = new NavigationPage(displayPage);
                     }
                     else
