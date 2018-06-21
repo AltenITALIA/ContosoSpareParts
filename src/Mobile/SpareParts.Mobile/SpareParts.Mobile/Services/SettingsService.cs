@@ -1,6 +1,7 @@
 using Newtonsoft.Json;
 using Plugin.Settings;
 using Plugin.Settings.Abstractions;
+using SpareParts.Mobile.Common;
 using System;
 using System.Threading.Tasks;
 
@@ -25,13 +26,13 @@ namespace SpareParts.Mobile.Services
 
         public string PredictionKey
         {
-            get => settings.GetValueOrDefault(PREDICTION_KEY, null);
+            get => settings.GetValueOrDefault(PREDICTION_KEY, ServiceKeys.CustomVisionPredictionKey);
             set => settings.AddOrUpdateValue(PREDICTION_KEY, value);
         }
 
         public string ProjectId
         {
-            get => settings.GetValueOrDefault(PROJECT_ID, Guid.Empty.ToString("D"));
+            get => settings.GetValueOrDefault(PROJECT_ID, ServiceKeys.CustomVisionProjectId);
             set => settings.AddOrUpdateValue(PROJECT_ID, value);
         }
     }

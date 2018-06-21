@@ -9,6 +9,25 @@
     Title="Spare Parts"
     BindingContext="{Binding Source={StaticResource Locator}, Path=MainViewModel}">
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Command="{Binding SettingsCommand}"
+            Priority="0"
+            Text="Impostazioni...">
+            <ToolbarItem.Order>
+                <OnPlatform x:TypeArguments="ToolbarItemOrder">
+                    <On Platform="Android">Secondary</On>
+                    <On Platform="iOS">Primary</On>
+                </OnPlatform>
+            </ToolbarItem.Order>
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="iOS">Images/settings.png</On>
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
     <Grid Style="{StaticResource MasterGridStyle}">
         <Grid Style="{StaticResource ContentListGridStyle}">
             <Grid.RowDefinitions>

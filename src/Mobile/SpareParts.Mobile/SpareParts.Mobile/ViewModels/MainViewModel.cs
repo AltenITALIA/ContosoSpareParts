@@ -54,6 +54,8 @@ namespace SpareParts.Mobile.ViewModels
 
         public AutoRelayCommand SearchCommand { get; private set; }
 
+        public AutoRelayCommand SettingsCommand { get; private set; }
+
         public MainViewModel(IContosoService contosoService)
         {
             this.contosoService = contosoService;
@@ -65,6 +67,7 @@ namespace SpareParts.Mobile.ViewModels
         {
             SearchCommand = new AutoRelayCommand(async () => await SearchAsync(), () => !IsBusy).DependsOn(nameof(IsBusy));
             ItemTappedCommand = new AutoRelayCommand<GetVehicle>(async (vehicle) => await GotoVehicleHistoryAsync(vehicle));
+            SettingsCommand = new AutoRelayCommand(() => NavigationService.NavigateTo(Constants.SettingsPage));
         }
 
         private async Task SearchAsync()

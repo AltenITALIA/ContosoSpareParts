@@ -91,6 +91,7 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Renderers\DarkEntryRenderer.cs" />
     <Compile Include="Renderers\DarkSearchBarRenderer.cs" />
     <Compile Include="Resources\Computer.cs">
       <DependentUpon>Computer.mlmodel</DependentUpon>
@@ -183,5 +184,8 @@
       <Project>{fdd2d1c0-6c82-4038-a1d8-c3b65bae2915}</Project>
       <Name>SpareParts.Mobile</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Images\settings.png" />
   </ItemGroup>
 </Project>
