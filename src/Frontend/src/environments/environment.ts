@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  getVehicleUrl:'https://contoso-spare-parts.azure-api.net/vehicles/'
+  getVehicleUrl:'https://contoso-spare-parts.azure-api.net/vehicles/',
+  getPartUrl:'https://contoso-spare-parts.azure-api.net/parts/'
 };
 
 /*

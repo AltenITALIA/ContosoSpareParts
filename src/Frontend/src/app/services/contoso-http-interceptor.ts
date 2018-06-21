@@ -75,8 +75,7 @@ export class ContosoHttpInterceptor  implements HttpInterceptor  {
             this._pendingRequests++;
 
             if (1 === this._pendingRequests) {
-                this._pendingRequestsStatus.next(true);
-                
+                this._pendingRequestsStatus.next(true);              
             }
         }
 

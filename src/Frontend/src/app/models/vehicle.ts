@@ -1,4 +1,4 @@
-export interface vehicle {
+export class vehicle {
     brand: string;
     model: string;
     customer: string;
