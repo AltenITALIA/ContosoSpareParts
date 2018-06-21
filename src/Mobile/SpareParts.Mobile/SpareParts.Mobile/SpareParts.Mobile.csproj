@@ -14,6 +14,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\SpareParts.ApiClient\SpareParts.ApiClient.csproj" />
+    <ProjectReference Include="..\..\..\Common\SpareParts.ApiModel\SpareParts.ApiModel.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Views\SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
     </Compile>

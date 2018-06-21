@@ -40,7 +40,7 @@ namespace SpareParts.Mobile.Droid.Renderers
 
             var searchIconId = searchView.Context.Resources.GetIdentifier("android:id/search_mag_icon", null, null);
             var searchIcon = (ImageView)searchView.FindViewById(searchIconId);
-            searchIcon.SetImageResource(Resource.Drawable.ic_action_photo_camera);
+            searchIcon.SetImageResource(Resource.Drawable.ic_search);
         }
     }
 }

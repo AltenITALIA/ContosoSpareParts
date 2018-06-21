@@ -33,14 +33,13 @@
                 Grid.Row="1"
                 CachingStrategy="RecycleElement"
                 HasUnevenRows="True"
-                IsPullToRefreshEnabled="True"
-                IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}"
-                ItemsSource="{Binding Incarichi}"
-                RefreshCommand="{Binding RefreshCommand}">
+                ItemsSource="{Binding Vehicles}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Grid Margin="10,10,10,0" />
+                            <Grid Margin="10,10,10,10">
+                                <Label Text="{Binding Id}" />
+                            </Grid>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

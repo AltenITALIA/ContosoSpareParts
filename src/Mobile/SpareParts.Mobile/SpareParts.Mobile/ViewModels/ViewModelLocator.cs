@@ -10,6 +10,8 @@ using Plugin.Permissions;
 using Plugin.Permissions.Abstractions;
 using System.Globalization;
 using Xamarin.Forms;
+using SpareParts.ApiClient;
+using Refit;
 
 namespace SpareParts.Mobile.ViewModels
 {
@@ -26,6 +28,12 @@ namespace SpareParts.Mobile.ViewModels
             SimpleIoc.Default.Register<IPermissionService, PermissionService>();
             SimpleIoc.Default.Register<IMediaService, MediaService>();
             SimpleIoc.Default.Register<ISettingsService, SettingsService>();
+
+            var hostUrl = new ApiOptions().BaseUri.ToString();
+            SimpleIoc.Default.Register<IHistoryClient>(() => RestService.For<IHistoryClient>(hostUrl));
+            SimpleIoc.Default.Register<IVehicleClient>(() => RestService.For<IVehicleClient>(hostUrl));
+
+            SimpleIoc.Default.Register<IContosoService, ContosoService>();
 
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<SettingsViewModel>();
