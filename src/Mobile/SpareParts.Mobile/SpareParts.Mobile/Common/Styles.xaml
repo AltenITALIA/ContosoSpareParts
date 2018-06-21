@@ -1,11 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<?Mapping compile="true"       ?>
+<?Mapping compile="true"            ?>
 <ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
     <Color x:Key="DefaultColor">#C2185B</Color>
     <Color x:Key="StatusBarColor">#C2185B</Color>
     <Color x:Key="MainContentBackgroundColor">#424242</Color>
     <Color x:Key="TextColorWithDarkBackground">White</Color>
     <Color x:Key="TextColorWithLightBackground">Black</Color>
+    <Color x:Key="PlaceholderWithDarkBackground">WhiteSmoke</Color>
 
     <Style ApplyToDerivedTypes="True" TargetType="ContentPage">
         <Setter Property="BackgroundColor" Value="{StaticResource MainContentBackgroundColor}" />
@@ -52,7 +53,7 @@
 
     <Style TargetType="SearchBar">
         <Setter Property="TextColor" Value="{StaticResource TextColorWithDarkBackground}" />
-        <Setter Property="PlaceholderColor" Value="{StaticResource TextColorWithDarkBackground}" />
+        <Setter Property="PlaceholderColor" Value="{StaticResource PlaceholderWithDarkBackground}" />
         <Setter Property="CancelButtonColor" Value="{StaticResource TextColorWithDarkBackground}" />
         <!--<Setter Property="BackgroundColor"  Value="{StaticResource TextColorWithDarkBackground}" />-->
     </Style>

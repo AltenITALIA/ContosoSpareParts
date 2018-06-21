@@ -42,6 +42,8 @@ namespace SpareParts.Mobile.ViewModels
 
         public AutoRelayCommand SettingsCommand { get; private set; }
 
+        public AutoRelayCommand SearchCommand { get; private set; }
+
         public MainViewModel(IMediaService mediaService)
         {
             CreateCommands();
@@ -50,6 +52,25 @@ namespace SpareParts.Mobile.ViewModels
         private void CreateCommands()
         {
             SettingsCommand = new AutoRelayCommand(() => NavigationService.NavigateTo(Constants.SettingsPage));
+            SearchCommand = new AutoRelayCommand(async () => await SearchAsync(), () => !IsBusy).DependsOn(nameof(IsBusy));
+        }
+
+        private async Task SearchAsync()
+        {
+            IsBusy = true;
+
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                await ShowErrorAsync($"Si è verificato un errore durante la ricerca: {ex.Message}", ex);
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
     }
 }

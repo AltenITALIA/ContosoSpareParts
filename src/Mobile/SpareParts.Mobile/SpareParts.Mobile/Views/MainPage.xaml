@@ -19,10 +19,11 @@
             <SearchBar
                 Grid.Row="0"
                 Placeholder="Cerca..."
+                SearchCommand="{Binding SearchCommand}"
                 Text="{Binding SearchText}">
                 <SearchBar.Margin>
                     <OnPlatform x:TypeArguments="Thickness">
-                        <On Platform="UWP, iOS">-10,0,0,0</On>
+                        <On Platform="UWP, iOS">0,0,0,0</On>
                         <On Platform="Android">-15,0,0,0</On>
                     </OnPlatform>
                 </SearchBar.Margin>

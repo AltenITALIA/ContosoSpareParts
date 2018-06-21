@@ -7,12 +7,12 @@ using Xamarin.Forms.Platform.Android;
 using SpareParts.Mobile.Droid.Renderers;
 using Android.Content;
 
-[assembly: ExportRenderer(typeof(SearchBar), typeof(ColoredSearchBarRenderer))]
+[assembly: ExportRenderer(typeof(SearchBar), typeof(DarkSearchBarRenderer))]
 namespace SpareParts.Mobile.Droid.Renderers
 {
-    public class ColoredSearchBarRenderer : SearchBarRenderer
+    public class DarkSearchBarRenderer : SearchBarRenderer
     {
-        public ColoredSearchBarRenderer(Context context): base(context)
+        public DarkSearchBarRenderer(Context context): base(context)
         {
         }
 
