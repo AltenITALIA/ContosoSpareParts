@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<?Mapping compile="true"             ?>
+<?Mapping compile="true"                     ?>
 <ResourceDictionary
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core">
 
     <Color x:Key="DefaultColor">#C2185B</Color>
@@ -41,6 +42,11 @@
                 </OnPlatform>
             </Setter.Value>
         </Setter>
+    </Style>
+
+    <Style TargetType="ffimageloading:CachedImage">
+        <Setter Property="Aspect" Value="AspectFit" />
+        <Setter Property="DownsampleToViewSize" Value="true" />
     </Style>
 
     <Style TargetType="Label">

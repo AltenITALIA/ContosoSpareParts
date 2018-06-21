@@ -10,15 +10,20 @@
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
     <PackageReference Include="Xam.Plugin.Media" Version="4.0.0.9" />
     <PackageReference Include="Xam.Plugins.Settings" Version="3.1.1" />
+    <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.3.840" />
     <PackageReference Include="Xamarin.Forms" Version="3.0.0.561731" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Common\SpareParts.ApiClient\SpareParts.ApiClient.csproj" />
     <ProjectReference Include="..\..\..\Common\SpareParts.ApiModel\SpareParts.ApiModel.csproj" />
+    <ProjectReference Include="..\..\CustomVisionClient\CustomVisionClient.csproj" />
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\AddHistoryPage.xaml.cs">
+      <DependentUpon>AddHistoryPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\HistoryPage.xaml.cs">
       <DependentUpon>HistoryPage.xaml</DependentUpon>
     </Compile>

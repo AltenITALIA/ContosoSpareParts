@@ -15,10 +15,11 @@ using GalaSoft.MvvmLight.Command;
 using SpareParts.ApiModel.Vehicles;
 using CustomVisionClient;
 using SpareParts.Mobile.Models;
+using CustomVisionClient.Models;
 
 namespace SpareParts.Mobile.ViewModels
 {
-    public class HistoryViewModel : ViewModelBase
+    public class AddHistoryViewModel : ViewModelBase
     {
         private readonly IContosoService contosoService;
         private readonly IMediaService mediaService;
@@ -30,11 +31,21 @@ namespace SpareParts.Mobile.ViewModels
             set => Set(ref vehicle, value);
         }
 
-        public AutoRelayCommand TakePhotoCommand { get; private set; }
+        private Recognition recognition;
+        public Recognition Recognition
+        {
+            get => recognition;
+            set => Set(ref recognition, value);
+        }
 
-        public AutoRelayCommand PickPhotoCommand { get; private set; }
+        private string imagePath;
+        public string ImagePath
+        {
+            get => imagePath;
+            set => Set(ref imagePath, value);
+        }
 
-        public HistoryViewModel(IContosoService contosoService, IMediaService mediaService)
+        public AddHistoryViewModel(IContosoService contosoService, IMediaService mediaService)
         {
             this.contosoService = contosoService;
             this.mediaService = mediaService;
@@ -44,31 +55,32 @@ namespace SpareParts.Mobile.ViewModels
 
         private void CreateCommands()
         {
-            TakePhotoCommand = new AutoRelayCommand(async () => await AnalyzePhotoAsync(() => mediaService.TakePhotoAsync()));
-            PickPhotoCommand = new AutoRelayCommand(async () => await AnalyzePhotoAsync(() => mediaService.PickPhotoAsync()));
         }
 
         public override void Activate(object parameter)
         {
-            Vehicle = parameter as GetVehicle;
+            var data = parameter as HistoryData;
+
+            ImagePath = data.File.Path;
+            Vehicle = data.Vehicle;
+
             base.Activate(parameter);
         }
 
-        private async Task AnalyzePhotoAsync(Func<Task<MediaFile>> action)
+        private async Task RecognizeAsync(MediaFile file, bool goBackOnError = false)
         {
             IsBusy = true;
 
             try
             {
-                var file = await action.Invoke();
-                if (file != null)
-                {
-                    NavigationService.NavigateTo(Constants.AddHistoryPage, new HistoryData(vehicle, file));
-                }
+                Recognition = null;
+                //Recognition = await recognitionService.RecognizeAsync(file);
+
+                file.Dispose();
             }
             catch (Exception ex)
             {
-                await DialogService.AlertAsync(ex.Message);
+                await ShowErrorAsync(ex.Message, ex);
             }
             finally
             {
