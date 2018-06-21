@@ -18,7 +18,7 @@ namespace SpareParts.ApiClient
         Task<GetVehicle[]> GetAsync();
 
         [Get("/vehicles/byPlate/{plate}")]
-        Task<GetVehicle> GetByPlateAsync(string plate);
+        Task<GetVehicle[]> GetByPlateAsync(string plate);
 
         [Delete("/vehicles/{id}")]
         [Multipart]
