@@ -22,8 +22,8 @@ namespace SpareParts.Mobile.ViewModels
     public class AddHistoryViewModel : ViewModelBase
     {
         private readonly IContosoService contosoService;
-        private readonly IMediaService mediaService;
-
+        private readonly IRecognitionService recognitionService;
+        
         private GetVehicle vehicle;
         public GetVehicle Vehicle
         {
@@ -35,7 +35,7 @@ namespace SpareParts.Mobile.ViewModels
         public Recognition Recognition
         {
             get => recognition;
-            set => Set(ref recognition, value);
+            set => Set(ref recognition, value, broadcast: true);
         }
 
         private string imagePath;
@@ -45,36 +45,42 @@ namespace SpareParts.Mobile.ViewModels
             set => Set(ref imagePath, value);
         }
 
-        public AddHistoryViewModel(IContosoService contosoService, IMediaService mediaService)
+        public AutoRelayCommand UploadCommand { get; private set; }
+
+        public AddHistoryViewModel(IContosoService contosoService, IRecognitionService recognitionService)
         {
             this.contosoService = contosoService;
-            this.mediaService = mediaService;
+            this.recognitionService = recognitionService;
 
             CreateCommands();
         }
 
         private void CreateCommands()
         {
+            UploadCommand = new AutoRelayCommand(async () => await UploadAsync(), () => !IsBusy && Recognition != null)
+                .DependsOn(nameof(IsBusy)).DependsOn(nameof(Recognition));
         }
 
-        public override void Activate(object parameter)
+        public override async void Activate(object parameter)
         {
             var data = parameter as HistoryData;
 
             ImagePath = data.File.Path;
             Vehicle = data.Vehicle;
 
+            await RecognizeAsync(data.File);
+
             base.Activate(parameter);
         }
 
-        private async Task RecognizeAsync(MediaFile file, bool goBackOnError = false)
+        private async Task RecognizeAsync(MediaFile file)
         {
             IsBusy = true;
 
             try
             {
                 Recognition = null;
-                //Recognition = await recognitionService.RecognizeAsync(file);
+                Recognition = await recognitionService.RecognizeAsync(file.GetStream());
 
                 file.Dispose();
             }
@@ -86,6 +92,24 @@ namespace SpareParts.Mobile.ViewModels
             {
                 IsBusy = false;
             }
+        }
+
+        private async Task UploadAsync()
+        {
+            IsBusy = true;
+
+            try
+            {
+            }
+            catch (Exception ex)
+            {
+                await ShowErrorAsync(ex.Message, ex);
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+
         }
     }
 }

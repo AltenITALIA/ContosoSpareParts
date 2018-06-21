@@ -39,12 +39,8 @@
     <item name="windowActionModeOverlay">true</item>
 
     <item name="android:datePickerDialogTheme">@style/AppCompatDialogStyle</item>
-    <!--<item name="android:listViewStyle">@style/ListViewStyle</item>-->
-    <item name="android:colorActivatedHighlight">@android:color/transparent</item>   <!-- Tapped/Selected -->
+    <!--<item name="android:colorActivatedHighlight">@android:color/transparent</item> -->   <!-- ListView Tapped/Selected -->
     <item name="android:colorLongPressedHighlight">@color/colorHighlight</item>
-    <!--<item name="android:colorPressedHighlight">@color/colorHighlight</item>
-    <item name="android:colorFocusedHighlight">@color/colorHighlight</item>
-    <item name="android:activatedBackgroundIndicator">@color/colorHighlight</item>-->
     <item name="android:actionModeBackground">@color/colorPrimaryDark</item>
   </style>
 
@@ -53,8 +49,4 @@
     <item name="colorControlActivated">@color/colorPrimaryDark</item>
     <item name="colorAccent">@color/colorAccent</item>
   </style>
-
-  <!--<style name="ListViewStyle" parent="@android:style/Widget.ListView">
-    <item name="android:listSelector">@android:color/transparent</item>
-  </style>-->
 </resources>

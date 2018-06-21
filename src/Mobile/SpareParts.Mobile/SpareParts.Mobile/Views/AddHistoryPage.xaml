@@ -7,17 +7,26 @@
     xmlns:common="clr-namespace:SpareParts.Mobile.Common"
     xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
     xmlns:local="clr-namespace:SpareParts.Mobile"
-    Title="{Binding Vehicle.Plate}"
+    Title="{Binding Recognition.Tag}"
     BindingContext="{Binding Source={StaticResource Locator}, Path=AddHistoryViewModel}">
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Command="{Binding UploadCommand}"
+            Order="Primary"
+            Priority="0">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="Android">ic_action_file_upload.png</On>
+                    <On Platform="iOS">Images/file_upload.png</On>
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
 
     <Grid Style="{StaticResource MasterGridStyle}">
         <ScrollView Style="{StaticResource ContentGridStyle}" VerticalOptions="Start">
             <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="200" />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
                 <ffimageloading:CachedImage
                     Grid.Row="0"
                     FadeAnimationEnabled="False"

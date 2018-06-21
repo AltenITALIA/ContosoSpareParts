@@ -7,6 +7,7 @@ using Android.Widget;
 using Android.OS;
 using Acr.UserDialogs;
 using Plugin.Permissions;
+using FFImageLoading.Forms.Platform;
 
 namespace SpareParts.Mobile.Droid
 {
@@ -21,9 +22,12 @@ namespace SpareParts.Mobile.Droid
 
             base.OnCreate(bundle);
 
+            Xamarin.Forms.Forms.SetFlags("FastRenderers_Experimental");
             global::Xamarin.Forms.Forms.Init(this, bundle);
 
             UserDialogs.Init(this);
+            CachedImageRenderer.Init(enableFastRenderer: true);
+
             LoadApplication(new App());
         }
 

@@ -30,6 +30,7 @@ namespace SpareParts.Mobile.ViewModels
             SimpleIoc.Default.Register<IPermissionService, PermissionService>();
             SimpleIoc.Default.Register<IMediaService, MediaService>();
             SimpleIoc.Default.Register<ISettingsService, SettingsService>();
+            SimpleIoc.Default.Register<IRecognitionService, RecognitionService>();
 
             var hostUrl = new ApiOptions().BaseUri.ToString();
             SimpleIoc.Default.Register<IHistoryClient>(() => RestService.For<IHistoryClient>(hostUrl));

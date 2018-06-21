@@ -51,7 +51,6 @@
             <ListView
                 Grid.Row="1"
                 CachingStrategy="RecycleElement"
-                HasUnevenRows="True"
                 ItemsSource="{Binding Vehicles}">
                 <ListView.ItemTemplate>
                     <DataTemplate>

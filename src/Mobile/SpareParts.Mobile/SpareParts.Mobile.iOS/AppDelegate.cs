@@ -24,7 +24,10 @@ namespace SpareParts.Mobile.iOS
 		public override bool FinishedLaunching(UIApplication app, NSDictionary options)
 		{
 			global::Xamarin.Forms.Forms.Init();
-			LoadApplication(new App());
+
+            FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
+
+            LoadApplication(new App());
 
 			var resources = Xamarin.Forms.Application.Current.Resources.MergedDictionaries.First();
 			var defaultColor = ((Color)resources["DefaultColor"]).ToUIColor();
