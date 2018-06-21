@@ -97,6 +97,7 @@ namespace SpareParts.Mobile.ViewModels
 
         private Task GotoVehicleHistoryAsync(GetVehicle vehicle)
         {
+            NavigationService.NavigateTo(Constants.HistoryPage, vehicle);
             return Task.CompletedTask;
         }
     }

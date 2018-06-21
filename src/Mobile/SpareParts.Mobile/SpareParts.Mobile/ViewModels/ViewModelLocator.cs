@@ -22,6 +22,7 @@ namespace SpareParts.Mobile.ViewModels
             var navigationService = new NavigationService();
             navigationService.Configure(Constants.MainPage, typeof(MainPage));
             navigationService.Configure(Constants.SettingsPage, typeof(SettingsPage));
+            navigationService.Configure(Constants.HistoryPage, typeof(HistoryPage));
 
             SimpleIoc.Default.Register<NavigationService>(() => navigationService);
             SimpleIoc.Default.Register<IUserDialogs>(() => UserDialogs.Instance);
@@ -37,10 +38,13 @@ namespace SpareParts.Mobile.ViewModels
 
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<SettingsViewModel>();
+            SimpleIoc.Default.Register<HistoryViewModel>();
         }
 
         public MainViewModel MainViewModel => SimpleIoc.Default.GetInstance<MainViewModel>();
 
         public SettingsViewModel SettingsViewModel => SimpleIoc.Default.GetInstance<SettingsViewModel>();
+
+        public HistoryViewModel HistoryViewModel => SimpleIoc.Default.GetInstance<HistoryViewModel>();
     }
 }

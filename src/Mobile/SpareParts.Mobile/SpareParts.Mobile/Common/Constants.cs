@@ -12,5 +12,6 @@ namespace SpareParts.Mobile.Common
 
         public const string MainPage = nameof(MainPage);
         public const string SettingsPage = nameof(SettingsPage);
+        public const string HistoryPage = nameof(HistoryPage);
     }
 }
