@@ -11,6 +11,8 @@ namespace SpareParts.Mobile.Services
 {
     public class RecognitionService : IRecognitionService
     {
+        private const double MINUMUM_PROBABILITY = 0.8D;
+
         private readonly OnlineClassifier classifer;
         private readonly ISettingsService settingsService;
 
@@ -23,7 +25,9 @@ namespace SpareParts.Mobile.Services
         public async Task<Recognition> RecognizeAsync(Stream image)
         {
             var results = await classifer.RecognizeAsync(settingsService.PredictionKey, Guid.Parse(settingsService.ProjectId), image);
-            return results.FirstOrDefault();
+            var bestResult = results.FirstOrDefault(r => r.Probability > MINUMUM_PROBABILITY);
+
+            return bestResult;
         }
     }
 }

@@ -11,5 +11,7 @@ namespace SpareParts.Mobile.Services
     public interface IContosoService
     {
         Task<IEnumerable<GetVehicle>> SearchVehiclesAsync(string plate);
+
+        Task AddHistoryAsync(GetVehicle vehicle, string partCode, string filePath);
     }
 }

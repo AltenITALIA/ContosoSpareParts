@@ -36,11 +36,12 @@
 
     <Grid Style="{StaticResource MasterGridStyle}">
         <Grid Style="{StaticResource ContentListGridStyle}">
-
             <ListView
                 CachingStrategy="RecycleElement"
-                HasUnevenRows="True"
-                ItemsSource="{Binding Vehicles}">
+                IsPullToRefreshEnabled="True"
+                IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}"
+                ItemsSource="{Binding History}"
+                RefreshCommand="{Binding RefreshCommand}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

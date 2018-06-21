@@ -23,7 +23,7 @@ namespace SpareParts.Mobile.ViewModels
     {
         private readonly IContosoService contosoService;
         private readonly IRecognitionService recognitionService;
-        
+
         private GetVehicle vehicle;
         public GetVehicle Vehicle
         {
@@ -65,6 +65,7 @@ namespace SpareParts.Mobile.ViewModels
         {
             var data = parameter as HistoryData;
 
+            Recognition = null;
             ImagePath = data.File.Path;
             Vehicle = data.Vehicle;
 
@@ -79,10 +80,12 @@ namespace SpareParts.Mobile.ViewModels
 
             try
             {
-                Recognition = null;
                 Recognition = await recognitionService.RecognizeAsync(file.GetStream());
-
-                file.Dispose();
+                if (recognition == null)
+                {
+                    await DialogService.AlertAsync("Impossibile riconoscere l'immagine. Scatta un'altra foto e riprova.", "Errore");
+                    NavigationService.GoBack();
+                }
             }
             catch (Exception ex)
             {
@@ -90,16 +93,22 @@ namespace SpareParts.Mobile.ViewModels
             }
             finally
             {
+                file.Dispose();
                 IsBusy = false;
             }
         }
 
         private async Task UploadAsync()
         {
-            IsBusy = true;
+            DialogService.ShowLoading("Caricamento in corso, attendere...");
 
             try
             {
+                await contosoService.AddHistoryAsync(vehicle, recognition.Tag, imagePath);
+
+                DialogService.HideLoading();
+                await DialogService.AlertAsync("Caricamento completato con successo.", "Operazione completata");
+                NavigationService.GoBack();
             }
             catch (Exception ex)
             {
@@ -109,7 +118,6 @@ namespace SpareParts.Mobile.ViewModels
             {
                 IsBusy = false;
             }
-
         }
     }
 }

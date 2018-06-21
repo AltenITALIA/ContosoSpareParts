@@ -24,23 +24,7 @@ namespace SpareParts.Mobile.ViewModels
         public string SearchText
         {
             get => searchText;
-            set
-            {
-                if (Set(ref searchText, value))
-                {
-                    if (!string.IsNullOrWhiteSpace(searchText))
-                    {
-                        //    // Filtra gli incarichi in base ai criteri di ricerca.
-                        //    PrestazioniFiltrate = prestazioniService.Prestazioni
-                        //        .Where(n => n.Descrizione.ContainsIgnoreCase(searchText) || n.CodiceAusiliario.ContainsIgnoreCase(searchText) || n.CodiceRegionale.ContainsIgnoreCase(searchText)
-                        //        || (n.Sinonimi?.Any(s => s.ContainsIgnoreCase(searchText)) ?? false) || (n.Discipline?.Any(d => d.Descrizione.ContainsIgnoreCase(searchText)) ?? false)).ToList();
-                    }
-                    else
-                    {
-                        //Incarichi = incarichiService.Incarichi;
-                    }
-                }
-            }
+            set => Set(ref searchText, value);
         }
 
         private IEnumerable<GetVehicle> vehicles;
@@ -90,7 +74,7 @@ namespace SpareParts.Mobile.ViewModels
             }
             catch (Exception ex)
             {
-                await ShowErrorAsync($"Si è verificato un errore durante la ricerca: {ex.Message}", ex);
+                await ShowErrorAsync($"Si è verificato un errore durante la ricerca dei veicoli: {ex.Message}", ex);
             }
             finally
             {

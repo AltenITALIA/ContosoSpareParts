@@ -15,6 +15,7 @@ using GalaSoft.MvvmLight.Command;
 using SpareParts.ApiModel.Vehicles;
 using CustomVisionClient;
 using SpareParts.Mobile.Models;
+using SpareParts.ApiModel.History;
 
 namespace SpareParts.Mobile.ViewModels
 {
@@ -30,9 +31,25 @@ namespace SpareParts.Mobile.ViewModels
             set => Set(ref vehicle, value);
         }
 
+        private IEnumerable<GetHistory> history;
+        public IEnumerable<GetHistory> History
+        {
+            get => history;
+            set => Set(ref history, value);
+        }
+
+        private bool isRefreshing;
+        public bool IsRefreshing
+        {
+            get => isRefreshing;
+            set => Set(ref isRefreshing, value, broadcast: true);
+        }
+
         public AutoRelayCommand TakePhotoCommand { get; private set; }
 
         public AutoRelayCommand PickPhotoCommand { get; private set; }
+
+        public AutoRelayCommand RefreshCommand { get; private set; }
 
         public HistoryViewModel(IContosoService contosoService, IMediaService mediaService)
         {
@@ -73,6 +90,25 @@ namespace SpareParts.Mobile.ViewModels
             finally
             {
                 IsBusy = false;
+            }
+        }
+
+        private async Task RefreshAsync()
+        {
+            IsBusy = true;
+
+            try
+            {
+                //History = await contosoService.
+            }
+            catch (Exception ex)
+            {
+                await ShowErrorAsync($"Si è verificato un errore durante la ricerca della storia: {ex.Message}", ex);
+            }
+            finally
+            {
+                IsBusy = false;
+                IsRefreshing = false;
             }
         }
     }
