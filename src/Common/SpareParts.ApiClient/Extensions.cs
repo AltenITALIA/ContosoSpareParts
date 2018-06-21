@@ -1,4 +1,4 @@
-﻿using DeepDevDay.ContosoSpareParts.ApiClient;
+﻿using SpareParts.ApiClient;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using System;

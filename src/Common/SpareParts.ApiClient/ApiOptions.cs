@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DeepDevDay.ContosoSpareParts.ApiClient
+namespace SpareParts.ApiClient
 {
     public class ApiOptions
     {

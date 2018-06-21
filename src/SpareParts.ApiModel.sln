@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2026
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeepDevDay.ContosoSpareParts.ApiModel", "Common\DeepDevDay.ContosoSpareParts.ApiModel\DeepDevDay.ContosoSpareParts.ApiModel.csproj", "{8FCE839F-5130-4ADB-B59A-0C4D8ACECEC3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpareParts.ApiModel", "Common\SpareParts.ApiModel\SpareParts.ApiModel.csproj", "{8FCE839F-5130-4ADB-B59A-0C4D8ACECEC3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeepDevDay.ContosoSpareParts.ApiClient", "Common\DeepDevDay.ContosoSpareParts.ApiClient\DeepDevDay.ContosoSpareParts.ApiClient.csproj", "{BF540DC0-4184-4E82-BC02-647654976F5B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpareParts.ApiClient", "Common\SpareParts.ApiClient\SpareParts.ApiClient.csproj", "{BF540DC0-4184-4E82-BC02-647654976F5B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeepDevDay.ContosoSpareParts.ApiClient.Tests", "..\test\Common\DeepDevDay.ContosoSpareParts.ApiClient.Tests\DeepDevDay.ContosoSpareParts.ApiClient.Tests.csproj", "{4BB9A404-423F-4DDF-BDB9-E28655B5278B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpareParts.ApiClient.Tests", "..\test\Common\SpareParts.ApiClient.Tests\SpareParts.ApiClient.Tests.csproj", "{4BB9A404-423F-4DDF-BDB9-E28655B5278B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

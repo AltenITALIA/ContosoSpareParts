@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DeepDevDay.ContosoSpareParts.ApiModel\DeepDevDay.ContosoSpareParts.ApiModel.csproj" />
+    <ProjectReference Include="..\SpareParts.ApiModel\SpareParts.ApiModel.csproj" />
   </ItemGroup>
 
 </Project>

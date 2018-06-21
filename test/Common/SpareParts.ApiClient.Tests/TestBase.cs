@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DeepDevDay.ContosoSpareParts.ApiClient.Tests
+namespace SpareParts.ApiClient.Tests
 {
     public class TestBase
     {

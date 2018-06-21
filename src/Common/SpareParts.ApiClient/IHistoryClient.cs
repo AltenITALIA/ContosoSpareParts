@@ -1,4 +1,4 @@
-﻿using DeepDevDay.ContosoSpareParts.ApiModel.History;
+﻿using SpareParts.ApiModel.History;
 using Refit;
 using System;
 using System.Collections.Generic;
@@ -6,7 +6,7 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DeepDevDay.ContosoSpareParts.ApiClient
+namespace SpareParts.ApiClient
 {
     public interface IHistoryClient
     {

@@ -1,11 +1,11 @@
 using System;
 using System.IO;
 using System.Threading.Tasks;
-using DeepDevDay.ContosoSpareParts.ApiModel.Vehicles;
+using SpareParts.ApiModel.Vehicles;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
-namespace DeepDevDay.ContosoSpareParts.ApiClient.Tests
+namespace SpareParts.ApiClient.Tests
 {
     public class VehicleClientTest : TestBase
     {

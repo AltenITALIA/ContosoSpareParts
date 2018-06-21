@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
 
-namespace DeepDevDay.ContosoSpareParts.ApiModel
+namespace SpareParts.ApiModel
 {
     internal static class Converter
     {

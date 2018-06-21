@@ -3,24 +3,21 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DeepDevDay.ContosoSpareParts.ApiModel.Vehicles
+namespace SpareParts.ApiModel.Vehicles
 {
-    public partial class GetVehicle
+    public partial class AddVehicle
     {
-        [JsonProperty("id")]
-        public string Id { get; set; }
-
         [JsonProperty("brand")]
         public string Brand { get; set; }
+
+        [JsonProperty("model")]
+        public string Model { get; set; }
 
         [JsonProperty("customer")]
         public string Customer { get; set; }
 
         [JsonProperty("plate")]
         public string Plate { get; set; }
-
-        [JsonProperty("model")]
-        public string Model { get; set; }
 
         [JsonProperty("color")]
         public string Color { get; set; }
@@ -29,9 +26,9 @@ namespace DeepDevDay.ContosoSpareParts.ApiModel.Vehicles
         public long Year { get; set; }
     }
 
-    public partial class GetVehicle
+    public partial class AddVehicle
     {
-        public static GetVehicle FromJson(string json) => JsonConvert.DeserializeObject<GetVehicle>(json, Converter.Settings);
+        public static AddVehicle FromJson(string json) => JsonConvert.DeserializeObject<AddVehicle>(json, SpareParts.ApiModel.Converter.Settings);
     }
 
 }
