@@ -16,6 +16,9 @@ namespace SpareParts.ApiClient
         [Get("/history")]
         Task<GetHistory[]> GetAsync();
 
+        [Get("/history/byVehicle/{vehicleId}")]
+        Task<GetHistory[]> GetByVehicleAsync(string vehicleId);
+
         [Put("/history/photo/{id}")]
         [Multipart]
         Task UploadPhotoAsync(string id, Stream stream);

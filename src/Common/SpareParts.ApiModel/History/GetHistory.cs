@@ -18,6 +18,10 @@ namespace SpareParts.ApiModel.History
 
         [JsonProperty("vehicleId")]
         public string VehicleId { get; set; }
+
+        [JsonProperty("photoUri")]
+        public string PhotoUri { get; set; }
+
     }
 
     public partial class GetHistory
