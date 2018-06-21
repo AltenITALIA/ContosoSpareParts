@@ -36,6 +36,14 @@ namespace SpareParts.ApiClient.Tests
         }
 
         [Fact]
+        public async Task GetHistoryByVehicleAsync()
+        {
+            var client = ServiceProvider.GetRequiredService<IHistoryClient>();
+            var histories = await client.GetByVehicleAsync("11");
+            Assert.NotNull(histories);
+        }
+
+        [Fact]
         public async Task UploadHistoryPhotoAsync()
         {
             var client = ServiceProvider.GetRequiredService<IHistoryClient>();
