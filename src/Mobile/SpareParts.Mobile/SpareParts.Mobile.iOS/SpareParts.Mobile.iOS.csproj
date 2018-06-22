@@ -94,15 +94,11 @@
     <Compile Include="Renderers\ColoredRefreshListViewRenderer.cs" />
     <Compile Include="Renderers\DarkEntryRenderer.cs" />
     <Compile Include="Renderers\DarkSearchBarRenderer.cs" />
-    <Compile Include="Resources\Computer.cs">
-      <DependentUpon>Computer.mlmodel</DependentUpon>
-    </Compile>
     <None Include="Entitlements.plist" />
     <None Include="Info.plist">
       <SubType>Designer</SubType>
     </None>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <BundleResource Include="Resources\Computer.mlmodel" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
@@ -200,5 +196,8 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Images\LoadingPlaceholder.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Images\ImageErrorPlaceholder.png" />
   </ItemGroup>
 </Project>
