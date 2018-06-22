@@ -23,8 +23,8 @@ namespace SpareParts.Mobile.Services
 
         public async Task<IEnumerable<GetVehicle>> SearchVehiclesAsync(string plate)
         {
-            var vehicle = await vehicleClient.GetByPlateAsync(plate);
-            return new List<GetVehicle>() { vehicle };
+            var vehicles = await vehicleClient.GetByPlateAsync(plate);
+            return vehicles;
         }
 
         public async Task<IEnumerable<GetHistory>> GetHistoryAsync(GetVehicle vehicle)
