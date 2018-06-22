@@ -8,7 +8,6 @@ public class CarMetric
     public decimal Latitude { get; set; }
     public decimal Longitude { get; set; }
     public int EngineLoad { get; set; }
-    public int EngineLoad { get; set; }
     public int ShortTermFuelBank1 { get; set; }
     public int LongTermFuelBank1 { get; set; }
     public int RPM { get; set; }
