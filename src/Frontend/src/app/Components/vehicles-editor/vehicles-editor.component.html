@@ -1,34 +1,36 @@
 <h2 mat-dialog-title>{{title}}</h2>
 <mat-dialog-content>
-  <div class="example-container">
-  <mat-form-field hintLabel="Max 50 characters">
-    <input [(ngModel)]="vehicle.brand" matInput #input maxlength="50" placeholder="Enter a brand">
-    <mat-hint align="end">{{input.value?.length || 0}}/50</mat-hint>
-  </mat-form-field>
-  <mat-form-field hintLabel="Max 50 characters">
-    <input [(ngModel)]="vehicle.model" matInput #input maxlength="50" placeholder="Enter a model">
-    <mat-hint align="end">{{input.value?.length || 0}}/50</mat-hint>
-  </mat-form-field>
-  <mat-form-field hintLabel="Max 200 characters">
-    <input [(ngModel)]="vehicle.customer" matInput #input maxlength="200" placeholder="Enter a customer name">
-    <mat-hint align="end">{{input.value?.length || 0}}/200</mat-hint>
-  </mat-form-field>
-  <mat-form-field hintLabel="Max 20 characters">
-    <input [(ngModel)]="vehicle.plate" matInput #input maxlength="20" placeholder="Enter a plate">
-    <mat-hint align="end">{{input.value?.length || 0}}/20</mat-hint>
-  </mat-form-field>
-  <mat-form-field hintLabel="Max 20 characters">
-    <input [(ngModel)]="vehicle.color" matInput #input maxlength="20" placeholder="Enter a color">
-    <mat-hint align="end">{{input.value?.length || 0}}/20</mat-hint>
-  </mat-form-field>
- <mat-form-field>
-  <input [(ngModel)]="vehicle.year" matInput [matDatepicker]="myDatepicker">
-  <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
-  <mat-datepicker #myDatepicker></mat-datepicker>
- </mat-form-field>
-</div>
+  <div >
+    <form  #heroForm="ngForm" class="example-container">
+      <mat-form-field hintLabel="Max 50 characters">
+        <input [(ngModel)]="vehicle.brand" required matInput #input maxlength="50" placeholder="Enter a brand" name="brand">
+        <mat-hint align="end">{{input.value?.length || 0}}/50</mat-hint>
+      </mat-form-field>
+      <mat-form-field hintLabel="Max 50 characters">
+        <input [(ngModel)]="vehicle.model" required  matInput #input maxlength="50" placeholder="Enter a model" name="model">
+        <mat-hint align="end">{{input.value?.length || 0}}/50</mat-hint>
+      </mat-form-field>
+      <mat-form-field hintLabel="Max 200 characters">
+        <input [(ngModel)]="vehicle.customer" matInput #input maxlength="200" placeholder="Enter a customer name" name="custromer">
+        <mat-hint align="end">{{input.value?.length || 0}}/200</mat-hint>
+      </mat-form-field>
+      <mat-form-field hintLabel="Max 20 characters">
+        <input [(ngModel)]="vehicle.plate" required matInput #input maxlength="20" placeholder="Enter a plate" name="plate">
+        <mat-hint align="end">{{input.value?.length || 0}}/20</mat-hint>
+      </mat-form-field>
+      <mat-form-field hintLabel="Max 20 characters">
+        <input [(ngModel)]="vehicle.color" matInput #input maxlength="20" placeholder="Enter a color" name="color">
+        <mat-hint align="end">{{input.value?.length || 0}}/20</mat-hint>
+      </mat-form-field>
+      <mat-form-field>
+        <input [(ngModel)]="vehicle.year" matInput [matDatepicker]="myDatepicker" name="year">
+        <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+        <mat-datepicker #myDatepicker></mat-datepicker>
+      </mat-form-field>
+    </form>
+  </div>
 </mat-dialog-content>
 <mat-dialog-actions>
   <button mat-button mat-dialog-close (click)="cancel()">Cancel</button>
-  <button mat-button  (click)="save()" cdkFocusInitial>Save</button>
+  <button mat-button (click)="save()" cdkFocusInitial [disabled]="!heroForm.form.valid">Save</button>
 </mat-dialog-actions>

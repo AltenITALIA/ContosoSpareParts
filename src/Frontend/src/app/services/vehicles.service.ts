@@ -28,7 +28,7 @@ export class VehiclesService {
   }
 
   addVehicle(newVehicle: vehicle): Observable<vehicle> {
-    return this.httpClient.post<vehicle>(environment.getVehicleUrl, newVehicle, httpOptions).pipe(
+    return this.httpClient.post<vehicle>(environment.addVehicleUrl, newVehicle, httpOptions).pipe(
       tap(vehicle => console.info('add veicle')),
         catchError(this.handleError<vehicle>('add vehicle')
       )
