@@ -75,7 +75,7 @@ namespace SpareParts.Mobile.ViewModels
         protected async Task ShowErrorAsync(string message, Exception ex = null)
         {
             DialogService.HideLoading();
-            await DialogService.AlertAsync(message);
+            await DialogService.AlertAsync(message, "Errore imprevisto");
         }
     }
 }

@@ -83,7 +83,7 @@ namespace SpareParts.Mobile.ViewModels
                 Recognition = await recognitionService.RecognizeAsync(file.GetStream());
                 if (recognition == null)
                 {
-                    await DialogService.AlertAsync("Impossibile riconoscere l'immagine. Scatta un'altra foto e riprova.", "Errore");
+                    await DialogService.AlertAsync("Impossibile riconoscere l'immagine. Scatta un'altra foto e riprova.", "Nessun riconoscimento");
                     NavigationService.GoBack();
                 }
             }
