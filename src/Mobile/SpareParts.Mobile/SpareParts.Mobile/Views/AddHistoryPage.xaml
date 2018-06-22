@@ -7,7 +7,7 @@
     xmlns:common="clr-namespace:SpareParts.Mobile.Common"
     xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
     xmlns:local="clr-namespace:SpareParts.Mobile"
-    Title="{Binding Recognition.Tag}"
+    Title="{Binding Recognition.Tag, Converter={StaticResource FirstCharToUpperConverter}}"
     BindingContext="{Binding Source={StaticResource Locator}, Path=AddHistoryViewModel}">
 
     <ContentPage.ToolbarItems>
@@ -34,8 +34,8 @@
                     Source="{Binding ImagePath}">
                     <ffimageloading:CachedImage.LoadingPlaceholder>
                         <OnPlatform x:TypeArguments="ImageSource">
-                            <On Platform="Android">loading_placeholder.png</On>
-                            <On Platform="iOS">Images/LoadingPlaceholder.png</On>
+                            <On Platform="Android">empty_loading_placeholder.png</On>
+                            <On Platform="iOS">Images/EmptyLoadingPlaceholder.png</On>
                         </OnPlatform>
                     </ffimageloading:CachedImage.LoadingPlaceholder>
                 </ffimageloading:CachedImage>

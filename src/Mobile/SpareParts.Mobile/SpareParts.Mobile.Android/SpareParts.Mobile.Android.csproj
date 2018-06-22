@@ -217,7 +217,7 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_search.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\loading_placeholder.png" />
+    <AndroidResource Include="Resources\drawable\empty_loading_placeholder.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\ic_action_file_upload.png" />

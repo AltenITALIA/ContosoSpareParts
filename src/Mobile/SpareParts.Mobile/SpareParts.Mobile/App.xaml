@@ -2,7 +2,8 @@
 <Application
     x:Class="SpareParts.Mobile.App"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converters="clr-namespace:SpareParts.Mobile.Converters">
 
     <Application.Resources>
         <ResourceDictionary>
@@ -11,6 +12,8 @@
             </ResourceDictionary.MergedDictionaries>
 
             <vm:ViewModelLocator xmlns:vm="clr-namespace:SpareParts.Mobile.ViewModels" x:Key="Locator" />
+
+            <converters:FirstCharToUpperConverter x:Key="FirstCharToUpperConverter" />
         </ResourceDictionary>
 
     </Application.Resources>

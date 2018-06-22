@@ -30,13 +30,17 @@ namespace SpareParts.Mobile.Services
         public async Task<IEnumerable<GetHistory>> GetHistoryAsync(GetVehicle vehicle)
         {
             var history = await historyClient.GetByVehicleAsync(vehicle.Id);
-            return history;
+            return history.OrderByDescending(h => h.Date);
         }
 
         public async Task AddHistoryAsync(GetVehicle vehicle, string partCode, string filePath)
         {
             // Innanzi tutto, caricamento l'elemento nella history.
-            var historyId = await historyClient.AddAsync(new ApiModel.History.AddHistory { VehicleId = vehicle.Id, PartCode = partCode });
+            var historyId = await historyClient.AddAsync(new AddHistory
+            {
+                VehicleId = vehicle.Id,
+                PartCode = partCode
+            });
 
             // A questo punto, effettua anche l'upload dell'immagine.
             using (var stream = File.OpenRead(filePath))

@@ -193,7 +193,7 @@
     <BundleResource Include="Resources\Images\settings.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\Images\LoadingPlaceholder.png" />
+    <BundleResource Include="Resources\Images\EmptyLoadingPlaceholder.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Images\file_upload.png" />
