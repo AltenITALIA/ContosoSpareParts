@@ -26,12 +26,12 @@
     <Grid Style="{StaticResource MasterGridStyle}">
         <ScrollView Style="{StaticResource ContentGridStyle}">
             <StackLayout>
-                <Label Style="{StaticResource CaptionLabelStyle}" Text="Prediction Key" />
+                <Label Style="{StaticResource CaptionLabelStyle}" Text="Custom Vision Prediction Key" />
                 <Entry Placeholder="Inserisci un valore" Text="{Binding PredictionKey}" />
                 <Label
                     Margin="0,20,0,0"
                     Style="{StaticResource CaptionLabelStyle}"
-                    Text="Project Id" />
+                    Text="Custom Vision Project Id" />
                 <Entry Placeholder="Inserisci un valore" Text="{Binding ProjectId}" />
             </StackLayout>
         </ScrollView>

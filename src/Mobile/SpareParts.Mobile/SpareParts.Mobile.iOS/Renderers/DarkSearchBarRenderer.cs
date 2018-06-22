@@ -13,6 +13,7 @@ using Xamarin.Forms.Platform.iOS;
 [assembly: ExportRenderer(typeof(SearchBar), typeof(DarkSearchBarRenderer))]
 namespace SpareParts.Mobile.iOS.Renderers
 {
+    // https://forums.xamarin.com/discussion/67506/is-it-possible-to-hide-suggestions-in-android-keyboard
     public class DarkSearchBarRenderer : SearchBarRenderer
     {
         protected override void OnElementChanged(ElementChangedEventArgs<SearchBar> args)

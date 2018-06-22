@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<?Mapping compile="true"                        ?>
+<?Mapping compile="true"                                 ?>
 <ResourceDictionary
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -9,10 +9,28 @@
     <Color x:Key="DefaultColor">#C2185B</Color>
     <Color x:Key="StatusBarColor">#C2185B</Color>
     <Color x:Key="MainContentBackgroundColor">#424242</Color>
+
     <Color x:Key="TextColorWithDarkBackground">White</Color>
     <Color x:Key="TextColorWithLightBackground">Black</Color>
-    <Color x:Key="PlaceholderWithDarkBackground">WhiteSmoke</Color>
+    <Color x:Key="PlaceholderWithDarkBackground">LightGray</Color>
     <Color x:Key="PlaceholderWithLightBackground">DarkGray</Color>
+
+    <Color x:Key="VehicleListBarColor">#C2175B</Color>
+    <Color x:Key="VehicleListBackgroundColor">#414141</Color>
+    <Color x:Key="VehicleListAlternateBackgroundColor">#4F4F4F</Color>
+    <Color x:Key="VehicleListLabelStyleColor">#C6C6C6</Color>
+    <Color x:Key="VehicleListLabelValueStyleColor">#C7C7C7</Color>
+
+    <Style x:Key="VehicleListLabelStyle" TargetType="Span">
+        <Setter Property="TextColor" Value="{StaticResource VehicleListLabelStyleColor}" />
+        <Setter Property="FontSize" Value="13" />
+    </Style>
+
+    <Style x:Key="VehicleListLabelValueStyle" TargetType="Span">
+        <Setter Property="TextColor" Value="{StaticResource VehicleListLabelValueStyleColor}" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="FontSize" Value="14" />
+    </Style>
 
     <Style ApplyToDerivedTypes="True" TargetType="ContentPage">
         <Setter Property="BackgroundColor" Value="{StaticResource MainContentBackgroundColor}" />
