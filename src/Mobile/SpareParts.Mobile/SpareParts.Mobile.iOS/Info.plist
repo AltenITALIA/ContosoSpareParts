@@ -5,13 +5,12 @@
 	<key>UIDeviceFamily</key>
 	<array>
 		<integer>1</integer>
-		<integer>2</integer>
 	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
@@ -36,10 +35,10 @@
 	<string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Spare Parts vuole utilizzare la camera per scattare foto.</string>
-  <key>NSPhotoLibraryUsageDescription</key>
-  <string>Spare Parts vuole utilizzare la galleria.</string>
-  <key>NSPhotoLibraryAddUsageDescription</key>
-  <string>Spare Parts ha bisogno di accedere alla galleria.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Spare Parts vuole utilizzare la galleria.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Spare Parts ha bisogno di accedere alla galleria.</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 	<key>UIStatusBarStyle</key>
