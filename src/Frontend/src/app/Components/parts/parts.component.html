@@ -1,0 +1,16 @@
+<table mat-table [dataSource]="parts" class="mat-elevation-z8" class="partsTable">
+  <ng-container matColumnDef="code">
+    <th mat-header-cell *matHeaderCellDef>code</th>
+    <td mat-cell *matCellDef="let element"> {{element.code}} </td>
+  </ng-container>
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>model</th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+  <ng-container matColumnDef="photoUri">
+    <th mat-header-cell *matHeaderCellDef>photo</th>
+    <td mat-cell *matCellDef="let element"> {{element.photoUri}} </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="['code' , 'name', 'photoUri']"></tr>
+  <tr mat-row *matRowDef="let row; columns: ['code' , 'name', 'photoUri']"></tr>
+</table>
