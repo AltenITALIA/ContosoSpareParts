@@ -10,6 +10,7 @@ export class VehiclesEditorComponent implements OnInit {
 
   vehicle: vehicle = new vehicle();
   title = 'Create new vehicle';
+  canSave = false;
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private dialogRef: MatDialogRef<VehiclesEditorComponent>) { }
 
   ngOnInit() {

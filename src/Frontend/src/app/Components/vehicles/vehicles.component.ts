@@ -3,6 +3,7 @@ import { VehiclesService } from '../../services/vehicles.service';
 import { vehicle } from '../../models/vehicle'
 import { MatTableDataSource, MatDialog, MAT_DIALOG_DATA, MatDialogConfig } from '@angular/material';
 import { VehiclesEditorComponent } from '../../components/vehicles-editor/vehicles-editor.component';
+import { SelectionModel } from '@angular/cdk/collections';
 
 @Component({
   selector: 'app-vehicles',
@@ -13,6 +14,8 @@ import { VehiclesEditorComponent } from '../../components/vehicles-editor/vehicl
 export class VehiclesComponent implements OnInit {
 
   vehicles: MatTableDataSource<vehicle>;
+  selection = new SelectionModel<vehicle>(true, []);
+  selectionMode = false;
   constructor(private vehiclesService: VehiclesService, private matDialod: MatDialog) { }
 
   ngOnInit() {
@@ -29,10 +32,12 @@ export class VehiclesComponent implements OnInit {
     filterValue = filterValue.toLowerCase();
     this.vehicles.filter = filterValue;
   }
-
+  toggleSelection() {
+    this.selection.clear();
+    this.selectionMode = !this.selectionMode;
+  }
   addVehicle() {
     const dialogConfig = new MatDialogConfig();
-
     dialogConfig.height = '550px';
     dialogConfig.width = '650px';
 
@@ -40,13 +45,16 @@ export class VehiclesComponent implements OnInit {
     dialogResult.afterClosed().subscribe(
       data => {
         console.log("Dialog output:", data);
-        this.vehiclesService.addVehicle(data as vehicle).subscribe(
-          id =>{
-            var d = this.vehicles.data;
-        
-            console.log("vehicle created with id:", id);
-          }
-        );
+        if (data != undefined) {
+          this.vehiclesService.addVehicle(data as vehicle).subscribe(
+            id => {
+              var d = this.vehicles.data;
+              d.push(data as vehicle);
+              this.vehicles = new MatTableDataSource(d);
+              console.log("vehicle created with id:", id);
+            }
+          );
+        }
       }
     );
   }
