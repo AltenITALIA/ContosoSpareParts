@@ -90,7 +90,7 @@ namespace SpareParts.Mobile.ViewModels
             }
             catch (Exception ex)
             {
-                await DialogService.AlertAsync(ex.Message);
+                await ShowErrorAsync(ex.Message);
             }
             finally
             {
