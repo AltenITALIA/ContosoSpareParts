@@ -96,6 +96,7 @@
     <Compile Include="Renderers\ColoredRefreshListViewRenderer.cs" />
     <Compile Include="Renderers\DarkEntryRenderer.cs" />
     <Compile Include="Renderers\DarkSearchBarRenderer.cs" />
+    <Compile Include="Renderers\NoSelectionViewCellRenderer.cs" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist">
       <SubType>Designer</SubType>

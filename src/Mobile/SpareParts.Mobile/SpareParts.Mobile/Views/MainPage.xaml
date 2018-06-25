@@ -6,7 +6,7 @@
     xmlns:behaviors="clr-namespace:SpareParts.Mobile.Behaviors"
     xmlns:common="clr-namespace:SpareParts.Mobile.Common"
     xmlns:local="clr-namespace:SpareParts.Mobile"
-    Title="Spare Parts"
+    Title="Contoso Spare Parts"
     BindingContext="{Binding Source={StaticResource Locator}, Path=MainViewModel}">
 
     <ContentPage.ToolbarItems>
