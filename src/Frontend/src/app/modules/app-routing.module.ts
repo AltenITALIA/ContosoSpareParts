@@ -7,7 +7,6 @@ import { VeicleHistoryComponent } from '../components/veicle-history/veicle-hist
 
 
 const routes: Routes = [
-
   { path: 'dashboard', component: DashboardComponent },
   { path: 'vehicles', component: VehiclesComponent },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },

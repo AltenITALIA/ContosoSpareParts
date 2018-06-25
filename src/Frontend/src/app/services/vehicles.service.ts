@@ -21,7 +21,7 @@ export class VehiclesService {
 
   getVehicles(): Observable<vehicle[]> {
     return this.httpClient.get<vehicle[]>(environment.getVehicleUrl).pipe(
-      tap(vehicle => console.info('fetch veicle')),
+      tap(vehicle => console.info('fetch vehicle')),
         catchError(this.handleError('load vehicles', [])
       )
     )
@@ -29,12 +29,20 @@ export class VehiclesService {
 
   addVehicle(newVehicle: vehicle): Observable<vehicle> {
     return this.httpClient.post<vehicle>(environment.addVehicleUrl, newVehicle, httpOptions).pipe(
-      tap(vehicle => console.info('add veicle')),
+      tap(vehicle => console.info('add new vehicle')),
         catchError(this.handleError<vehicle>('add vehicle')
       )
     )
   }
-
+  
+  deleteVehicle(vehicleToRemove: vehicle): Observable<vehicle> {
+    return this.httpClient.delete<vehicle>(`${environment.addVehicleUrl}${vehicleToRemove.id}`, httpOptions).pipe(
+      tap(t => console.info("deleted")),
+        catchError(this.handleError<vehicle>('delete vehicle')
+      )
+    )
+  }
+  
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(error);
