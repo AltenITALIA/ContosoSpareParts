@@ -21,12 +21,12 @@ namespace SpareParts.Mobile.Droid.Renderers
             base.OnElementChanged(args);
 
             // Get native control (background set in shared code, but can use SetBackgroundColor here)
-            var searchView = (base.Control as SearchView);
-            //searchView.SetInputType(InputTypes.ClassText | InputTypes.TextVariationNormal);
+            var searchView = Control as SearchView;
+            searchView.SetInputType(InputTypes.TextFlagNoSuggestions);
 
             // Access search textview within control
             var textViewId = searchView.Context.Resources.GetIdentifier("android:id/search_src_text", null, null);
-            var textView = (searchView.FindViewById(textViewId) as EditText);
+            var textView = searchView.FindViewById(textViewId) as EditText;
 
             // Set custom colors
             //textView.SetBackgroundColor(G.Color.Rgb(225, 225, 225));
@@ -35,8 +35,8 @@ namespace SpareParts.Mobile.Droid.Renderers
 
             // Customize frame color
             var frameId = searchView.Context.Resources.GetIdentifier("android:id/search_plate", null, null);
-            var frameView = (searchView.FindViewById(frameId) as Android.Views.View);
-            frameView.SetBackgroundColor(G.Color.Transparent);  // G.Color.Rgb(96, 96, 96)
+            var frameView = searchView.FindViewById(frameId) as Android.Views.View;
+            //frameView.SetBackgroundColor(G.Color.Rgb(96, 96, 96));
 
             var searchIconId = searchView.Context.Resources.GetIdentifier("android:id/search_mag_icon", null, null);
             var searchIcon = (ImageView)searchView.FindViewById(searchIconId);
