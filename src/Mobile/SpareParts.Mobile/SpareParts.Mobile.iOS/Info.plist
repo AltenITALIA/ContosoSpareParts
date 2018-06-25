@@ -30,13 +30,13 @@
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>NSCameraUsageDescription</key>
-	<string>Spare Parts vuole utilizzare la camera per scattare foto.</string>
+	<string>Contoso Spare Parts vuole utilizzare la camera per scattare foto.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Spare Parts vuole utilizzare la galleria.</string>
+	<string>Contoso Spare Parts vuole utilizzare la galleria.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>Spare Parts ha bisogno di accedere alla galleria.</string>
+	<string>Contoso Spare Parts ha bisogno di accedere alla galleria.</string>
 	<key>NSCalendarsUsageDescription</key>
-	<string>Spare Parts ha bisogno di accedere al tuo calendario.</string>
+	<string>Contoso Spare Parts vuole accedere al tuo calendario.</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 	<key>UIStatusBarStyle</key>
