@@ -35,9 +35,13 @@
 	<string>Spare Parts vuole utilizzare la galleria.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>Spare Parts ha bisogno di accedere alla galleria.</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>Spare Parts ha bisogno di accedere al tuo calendario.</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleBlackOpaque</string>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
 </dict>
 </plist>
