@@ -1,15 +1,25 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <span>command bar:</span>
+    <span>vehicles:</span>
     <button type="button" (click)="addVehicle()" aria-label="Create new veicle" mat-icon-button>
       <mat-icon aria-label="Side nav toggle icon">add_circle</mat-icon>
     </button>
+    <button type="button" (click)="toggleSelection()" aria-label="Create new veicle" mat-icon-button>
+        <mat-icon aria-label="Side nav toggle icon">add_circle</mat-icon>
+      </button>
   </mat-toolbar-row>
 </mat-toolbar>
 <mat-form-field class="vehicleInput">
   <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
 </mat-form-field>
 <table mat-table [dataSource]="vehicles" class="mat-elevation-z8" class="vehicleTable">
+  <ng-container matColumnDef="select" >
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let row">
+      <mat-checkbox *ngIf="selectionMode" (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null" [checked]="selection.isSelected(row)">
+      </mat-checkbox>
+    </td>
+  </ng-container>
   <ng-container matColumnDef="brand">
     <th mat-header-cell *matHeaderCellDef>brand</th>
     <td mat-cell *matCellDef="let element"> {{element.brand}} </td>
@@ -34,6 +44,6 @@
     <th mat-header-cell *matHeaderCellDef>year</th>
     <td mat-cell *matCellDef="let element"> {{element.year}} </td>
   </ng-container>
-  <tr mat-header-row *matHeaderRowDef="['brand' , 'model', 'customer', 'plate', 'color', 'year']"></tr>
-  <tr mat-row *matRowDef="let row; columns: ['brand' , 'model', 'customer', 'plate', 'color', 'year']"></tr>
+  <tr mat-header-row *matHeaderRowDef="['select','brand' , 'model', 'customer', 'plate', 'color', 'year']"></tr>
+  <tr mat-row *matRowDef="let row; columns: ['select','brand' , 'model', 'customer', 'plate', 'color', 'year']"></tr>
 </table>
