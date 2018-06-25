@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<?Mapping compile="true" ?>
+<?Mapping compile="true"  ?>
 <ResourceDictionary
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -125,6 +125,11 @@
                 </OnPlatform>
             </Setter.Value>
         </Setter>
+    </Style>
+
+    <Style TargetType="Frame">
+        <Setter Property="CornerRadius" Value="0" />
+        <Setter Property="HasShadow" Value="False" />
     </Style>
 </ResourceDictionary>
 

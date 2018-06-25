@@ -132,11 +132,14 @@
                                     Padding="0,-5,0,-5"
                                     BackgroundColor="{StaticResource VehicleListAlternateBackgroundColor}">
                                     <StackLayout Orientation="Horizontal">
-                                        <BoxView WidthRequest="30" Color="{StaticResource VehicleListBarColor}" />
-                                        <Label
-                                            Grid.Row="1"
-                                            Grid.Column="1"
-                                            VerticalOptions="Center">
+                                        <BoxView WidthRequest="30" Color="{StaticResource VehicleListBarColor}">
+                                            <BoxView.Margin>
+                                                <OnPlatform x:TypeArguments="Thickness">
+                                                    <On Platform="iOS">0,5,0,0</On>
+                                                </OnPlatform>
+                                            </BoxView.Margin>
+                                        </BoxView>
+                                        <Label VerticalOptions="Center">
                                             <Label.FormattedText>
                                                 <FormattedString>
                                                     <Span Style="{StaticResource VehicleListLabelStyle}" Text="Customer: " />
