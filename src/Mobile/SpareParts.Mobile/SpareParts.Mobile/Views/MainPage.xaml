@@ -104,17 +104,17 @@
                                     </Label.FormattedText>
                                 </Label>
 
-                                <Label
+                                <StackLayout
                                     Grid.Row="1"
                                     Grid.Column="0"
-                                    Margin="12,0,0,0">
-                                    <Label.FormattedText>
-                                        <FormattedString>
-                                            <Span Style="{StaticResource VehicleListLabelStyle}" Text="Color: " />
-                                            <Span Style="{StaticResource VehicleListLabelValueStyle}" Text="{Binding Color}" />
-                                        </FormattedString>
-                                    </Label.FormattedText>
-                                </Label>
+                                    Margin="12,0,0,0"
+                                    Orientation="Horizontal">
+                                    <Label Style="{StaticResource VehicleListLabelStyle}" Text="Color: " />
+                                    <BoxView
+                                        HeightRequest="5"
+                                        WidthRequest="50"
+                                        Color="{Binding Color, Converter={StaticResource StringToColorConverter}}" />
+                                </StackLayout>
 
                                 <Label Grid.Row="1" Grid.Column="1">
                                     <Label.FormattedText>
