@@ -24,9 +24,12 @@
             ],
             "styles": [
               {
-                "input": "node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css"
+                "input": "node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css"         
               },
-              "src/styles.css"
+              {
+                "input": "node_modules/roboto-fontface/css/roboto/roboto-fontface.css"         
+              },
+              "src/styles.css"          
             ],
             "scripts": []
           },
@@ -76,9 +79,13 @@
             "karmaConfig": "src/karma.conf.js",
             "styles": [
               {
-                "input": "node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css"
+                "input": "node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css"         
               },
-              "src/styles.css"
+              {
+                "input": "node_modules/roboto-fontface/css/roboto/roboto-fontface.css"         
+              },
+              "src/styles.css",
+              "styles.css"      
             ],
             "scripts": [],
             "assets": [

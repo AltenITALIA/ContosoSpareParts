@@ -60,8 +60,8 @@ export class VehiclesComponent implements OnInit {
   }
   deleteVehicle(vehicle: vehicle) {
     const dialogConfig = new MatDialogConfig();
-    dialogConfig.height = '250px';
-    dialogConfig.width = '450px';
+    dialogConfig.height = '350px';
+    dialogConfig.width = '550px';
     dialogConfig.data = vehicle;
     const dialogResult = this.matDialod.open(VehicleDeleteDialogComponent, dialogConfig);
 
