@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { vehicle } from '../models/vehicle';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, tap } from 'rxjs/operators';
-import { Observable, of } from 'rxjs';
+import { Observable, of, observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 
 
@@ -22,9 +22,8 @@ export class VehiclesService {
   getVehicles(): Observable<vehicle[]> {
     return this.httpClient.get<vehicle[]>(environment.getVehicleUrl).pipe(
       tap(vehicle => console.info('fetch vehicle')),
-        catchError(this.handleError('cant load vehicles', [])
-      )
-    )
+        catchError(this.handleError('cant load vehicles', []))
+    ) as Observable<vehicle[]>;
   }
 
   addVehicle(newVehicle: vehicle): Observable<vehicle> {

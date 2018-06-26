@@ -1,32 +1,40 @@
-import { TestBed, inject, async } from '@angular/core/testing';
+
 import { VehiclesService } from './vehicles.service';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Component } from '@angular/core';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { MatSnackBar } from '@angular/material';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatBadgeModule, MatIconRegistry, MatTableModule, MatProgressBarModule, MatInputModule, MatChipsModule, MatDialogModule, MatFormFieldModule, MatDatepickerModule, MatNativeDateModule, MatCheckboxModule, MatSnackBarModule } from '@angular/material';
+import { vehicle } from '../models/vehicle';
+import { defer } from 'rxjs';
+
+/** Create async observable that emits-once and completes
+ *  after a JS engine turn */
+export function asyncData<T>(data: T) {
+  return defer(() => Promise.resolve(data));
+}
+
+/** Create async observable error that errors
+ *  after a JS engine turn */
+export function asyncError<T>(errorObject: any) {
+  return defer(() => Promise.reject(errorObject));
+}
+
+
 let httpClientSpy: { get: jasmine.Spy };
-let heroService: VehiclesService;
+let vehicleService: VehiclesService;
+
 
 beforeEach(() => {
   // TODO: spy on other methods too
   httpClientSpy = jasmine.createSpyObj('HttpClient', ['get']);
-  heroService = new VehiclesService(<any> httpClientSpy, );
+  vehicleService = new VehiclesService(<any> httpClientSpy, );
 });
 
-describe('VehiclesService', () => {
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      providers: [VehiclesService]
-    });
-  });
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      imports: [ HttpClientModule, MatSnackBarModule ]
-    })
-    .compileComponents();
-  }));
-  it('should be created', inject([VehiclesService], (service: VehiclesService) => {
-    expect(service).toBeTruthy();
-  }));
+it('should return expected heroes (HttpClient called once)', () => {
+  const expectedVehicle: vehicle[] =
+    [{ id: "id", brand: "brand", model:"model", customer:"marco", year:2018, plate:"plate", color:"#color" }];
+ 
+  httpClientSpy.get.and.returnValue(asyncData(expectedVehicle));
+ 
+  vehicleService.getVehicles().subscribe(
+    vehicles => expect(vehicles).toEqual(expectedVehicle, 'expected heroes'),
+    fail
+  );
+  expect(httpClientSpy.get.calls.count()).toBe(1, 'one call');
 });
