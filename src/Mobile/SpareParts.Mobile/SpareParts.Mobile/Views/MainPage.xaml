@@ -6,7 +6,7 @@
     xmlns:behaviors="clr-namespace:SpareParts.Mobile.Behaviors"
     xmlns:common="clr-namespace:SpareParts.Mobile.Common"
     xmlns:local="clr-namespace:SpareParts.Mobile"
-    Title="Spare Parts"
+    Title="Contoso Spare Parts"
     BindingContext="{Binding Source={StaticResource Locator}, Path=MainViewModel}">
 
     <ContentPage.ToolbarItems>
@@ -89,7 +89,7 @@
                                 <Label Grid.Row="0" Grid.Column="1">
                                     <Label.FormattedText>
                                         <FormattedString>
-                                            <Span Style="{StaticResource VehicleListLabelStyle}" Text="Model: " />
+                                            <Span Style="{StaticResource VehicleListLabelStyle}" Text="Modello: " />
                                             <Span Style="{StaticResource VehicleListLabelValueStyle}" Text="{Binding Model}" />
                                         </FormattedString>
                                     </Label.FormattedText>
@@ -98,28 +98,23 @@
                                 <Label Grid.Row="0" Grid.Column="2">
                                     <Label.FormattedText>
                                         <FormattedString>
-                                            <Span Style="{StaticResource VehicleListLabelStyle}" Text="Plate: " />
+                                            <Span Style="{StaticResource VehicleListLabelStyle}" Text="Targa: " />
                                             <Span Style="{StaticResource VehicleListLabelValueStyle}" Text="{Binding Plate}" />
                                         </FormattedString>
                                     </Label.FormattedText>
                                 </Label>
 
-                                <Label
+                                <BoxView
                                     Grid.Row="1"
                                     Grid.Column="0"
-                                    Margin="12,0,0,0">
-                                    <Label.FormattedText>
-                                        <FormattedString>
-                                            <Span Style="{StaticResource VehicleListLabelStyle}" Text="Color: " />
-                                            <Span Style="{StaticResource VehicleListLabelValueStyle}" Text="{Binding Color}" />
-                                        </FormattedString>
-                                    </Label.FormattedText>
-                                </Label>
+                                    Margin="12,0,12,0"
+                                    HeightRequest="5"
+                                    Color="{Binding Color, Converter={StaticResource StringToColorConverter}}" />
 
                                 <Label Grid.Row="1" Grid.Column="1">
                                     <Label.FormattedText>
                                         <FormattedString>
-                                            <Span Style="{StaticResource VehicleListLabelStyle}" Text="Year: " />
+                                            <Span Style="{StaticResource VehicleListLabelStyle}" Text="Anno: " />
                                             <Span Style="{StaticResource VehicleListLabelValueStyle}" Text="{Binding Year}" />
                                         </FormattedString>
                                     </Label.FormattedText>
@@ -142,7 +137,7 @@
                                         <Label VerticalOptions="Center">
                                             <Label.FormattedText>
                                                 <FormattedString>
-                                                    <Span Style="{StaticResource VehicleListLabelStyle}" Text="Customer: " />
+                                                    <Span Style="{StaticResource VehicleListLabelStyle}" Text="Cliente: " />
                                                     <Span Style="{StaticResource VehicleListLabelValueStyle}" Text="{Binding Customer}" />
                                                 </FormattedString>
                                             </Label.FormattedText>

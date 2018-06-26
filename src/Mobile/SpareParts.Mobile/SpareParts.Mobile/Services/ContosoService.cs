@@ -31,6 +31,7 @@ namespace SpareParts.Mobile.Services
             list.AddRange(list);
             list.AddRange(list);
             list.AddRange(list);
+
             return list;
         }
 
