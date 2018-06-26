@@ -5,6 +5,7 @@ import { catchError, tap } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import { environment } from '../../environments/environment';
 
+
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json'
@@ -16,13 +17,12 @@ const httpOptions = {
 })
 export class VehiclesService {
 
-
   constructor(private httpClient: HttpClient) { }
 
   getVehicles(): Observable<vehicle[]> {
     return this.httpClient.get<vehicle[]>(environment.getVehicleUrl).pipe(
       tap(vehicle => console.info('fetch vehicle')),
-        catchError(this.handleError('load vehicles', [])
+        catchError(this.handleError('cant load vehicles', [])
       )
     )
   }
@@ -30,22 +30,23 @@ export class VehiclesService {
   addVehicle(newVehicle: vehicle): Observable<vehicle> {
     return this.httpClient.post<vehicle>(environment.addVehicleUrl, newVehicle, httpOptions).pipe(
       tap(vehicle => console.info('add new vehicle')),
-        catchError(this.handleError<vehicle>('add vehicle')
+        catchError(this.handleError<vehicle>('cant add vehicle')
       )
     )
   }
   
   deleteVehicle(vehicleToRemove: vehicle): Observable<vehicle> {
-    return this.httpClient.delete<vehicle>(`${environment.addVehicleUrl}${vehicleToRemove.id}`, httpOptions).pipe(
+    return this.httpClient.delete<vehicle>(`${environment.deleteVehicleUrl}${vehicleToRemove.id}`, httpOptions).pipe(
       tap(t => console.info("deleted")),
-        catchError(this.handleError<vehicle>('delete vehicle')
+        catchError(this.handleError<vehicle>('cant delete vehicle')
       )
     )
   }
   
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
-      console.error(error);
+      console.error("error on:",error);
+  
       return of(result as T);
     };
   }
