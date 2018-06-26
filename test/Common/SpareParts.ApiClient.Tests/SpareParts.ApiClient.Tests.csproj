@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\src\Common\SpareParts.ApiClient\DeepDevDay.ContosoSpareParts.ApiClient.csproj" />
+    <ProjectReference Include="..\..\..\src\Common\SpareParts.ApiClient\SpareParts.ApiClient.csproj" />
   </ItemGroup>
 
 </Project>
