@@ -4,7 +4,7 @@ import { vehicle } from '../../models/vehicle'
 import { MatTableDataSource, MatDialog, MAT_DIALOG_DATA, MatDialogConfig } from '@angular/material';
 import { VehiclesEditorComponent } from '../../components/vehicles-editor/vehicles-editor.component';
 import { SelectionModel } from '@angular/cdk/collections';
-
+import { VehicleDeleteDialogComponent } from '../../components/vehicle-delete-dialog/vehicle-delete-dialog.component'
 @Component({
   selector: 'app-vehicles',
   templateUrl: './vehicles.component.html',
@@ -41,17 +41,43 @@ export class VehiclesComponent implements OnInit {
     dialogConfig.height = '550px';
     dialogConfig.width = '650px';
 
-    const dialogResult = this.matDialod.open(VehiclesEditorComponent, dialogConfig)
+    const dialogResult = this.matDialod.open(VehiclesEditorComponent, dialogConfig);
     dialogResult.afterClosed().subscribe(
       data => {
         console.log("Dialog output:", data);
         if (data != undefined) {
           this.vehiclesService.addVehicle(data as vehicle).subscribe(
             id => {
-              var d = this.vehicles.data;
+              let d = this.vehicles.data;
               d.push(data as vehicle);
               this.vehicles = new MatTableDataSource(d);
               console.log("vehicle created with id:", id);
+            }
+          );
+        }
+      }
+    );
+  }
+  deleteVehicle(vehicle: vehicle) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.height = '250px';
+    dialogConfig.width = '450px';
+    dialogConfig.data = vehicle;
+    const dialogResult = this.matDialod.open(VehicleDeleteDialogComponent, dialogConfig);
+
+    dialogResult.afterClosed().subscribe(
+      data => {
+        console.log("Dialog output:", data);
+        if (data) {
+          this.vehiclesService.deleteVehicle(vehicle).subscribe(
+            v => {
+              console.log(v);
+              let d = this.vehicles.data;
+              let index: number = d.indexOf(vehicle);
+              if (index !== -1) {
+                  d.splice(index, 1);
+              }
+              this.vehicles = new MatTableDataSource(d);
             }
           );
         }

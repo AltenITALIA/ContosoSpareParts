@@ -16,6 +16,7 @@ import { ProgressComponent } from './components/progress/progress.component';
 import { ContosoHttpInterceptor } from '../app/services/contoso-http-interceptor';
 import { VehiclesEditorComponent } from './components/vehicles-editor/vehicles-editor.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { VehicleDeleteDialogComponent } from './components/vehicle-delete-dialog/vehicle-delete-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     PartsComponent,
     VeicleHistoryComponent,
     ProgressComponent,
-    VehiclesEditorComponent
+    VehiclesEditorComponent,
+    VehicleDeleteDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -57,6 +59,6 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
       multi: true
     }],
   bootstrap: [AppComponent],
-  entryComponents: [VehiclesEditorComponent]
+  entryComponents: [VehiclesEditorComponent, VehicleDeleteDialogComponent]
 })
 export class AppModule { }
