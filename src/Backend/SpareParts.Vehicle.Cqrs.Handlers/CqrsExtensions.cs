@@ -8,16 +8,16 @@ namespace SpareParts.Cqrs
 {
     public static class CqrsExtensions
     {
-        public static ICqrsConfigurer AddCatalogHandlers(this ICqrsConfigurer configurer)
+        public static ICqrsConfigurer AddVehicleHandlers(this ICqrsConfigurer configurer)
         {
-            configurer.AddHandlersFromAssemblyOfType<MovieHandlers>();
+            configurer.AddHandlersFromAssemblyOfType<VehicleHandlers>();
 
             return configurer;
         }
 
-        public static void CatalogSubscribe(this ICqrsConfigurer configurer)
+        public static void VehicleSubscribe(this ICqrsConfigurer configurer)
         {
-            configurer.Subscribe<MovieAddedEvent>();
+            configurer.Subscribe<VehicleAddedEvent>();
         }
     }
 }

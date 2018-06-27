@@ -30,6 +30,7 @@ namespace Microsoft.Extensions.DependencyInjection
 
             services.AddRebus((configure, provider) =>
             {
+                configurer.Provider = provider;
                 string connectionString = provider.GetRequiredService<IConfiguration>().GetConnectionString("Rebus");
                 EnsureDatabaseCreated(connectionString);
 
@@ -44,8 +45,9 @@ namespace Microsoft.Extensions.DependencyInjection
                         o.SetDueTimeoutsPollInteval(TimeSpan.FromSeconds(1));
                         o.SimpleRetryStrategy(maxDeliveryAttempts: 1, secondLevelRetriesEnabled: true);
                     })
-                    .Sagas(s => s.StoreInSqlServer(connectionString, "Sagas", "SagasIndex"))
-                    .Timeouts(t => t.StoreInSqlServer(connectionString, "MessageTimeouts"))
+                    //.Sagas(s => s.StoreInSqlServer(connectionString, "Sagas", "SagasIndex"))
+                    //.Timeouts(t => t.StoreInSqlServer(connectionString, "MessageTimeouts"))
+                    .Subscriptions(t => t.StoreInSqlServer(connectionString, "Subscriptions"))
                     .Logging(l => l.Serilog())
                     .Transport(configurer.ApplyActions)
                     .Routing(configurer.ApplyActions);

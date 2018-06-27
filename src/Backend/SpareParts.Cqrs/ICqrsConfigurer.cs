@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Rebus.Bus;
 using Rebus.Config;
@@ -43,6 +44,8 @@ namespace SpareParts.Cqrs
             _services = services;
         }
 
+        public IServiceProvider Provider { get; set; }
+
         public ICqrsConfigurer AddCommandsRouteFromAssemblyOfType<T>(string queueName)
             where T :ICommand
         {
@@ -64,7 +67,8 @@ namespace SpareParts.Cqrs
         public ICqrsConfigurer AddQueue(string queueName)
         {
             //_transportActions.Add(t => t.UseInMemoryTransport(inMemNetwork, queueName));
-            _transportActions.Add(t => t.UseRabbitMq("amqp://guest:guest@bus:5672", queueName));
+            //_transportActions.Add(t => t.UseRabbitMq("amqp://guest:guest@bus:5672", queueName));
+            _transportActions.Add(t => t.UseSqlServer(Provider.GetRequiredService<IConfiguration>().GetConnectionString("Rebus"), "Queue", queueName));
 
             return this;
         }

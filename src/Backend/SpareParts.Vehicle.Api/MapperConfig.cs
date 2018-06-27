@@ -1,5 +1,6 @@
 ﻿using System;
 using AutoMapper;
+using SpareParts.Vehicle.Api.Models.Vehicle;
 
 namespace SpareParts.Vehicle.Api
 {
@@ -9,7 +10,7 @@ namespace SpareParts.Vehicle.Api
         {
             return new MapperConfiguration(e =>
             {
-                e.CreateMap<ReadModel.Movie, Models.Movie.GetModel>();
+                e.CreateMap<ReadModel.Vehicle, GetModel>();
             }).CreateMapper();
         }
     }

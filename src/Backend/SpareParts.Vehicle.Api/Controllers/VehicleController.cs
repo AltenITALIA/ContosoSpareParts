@@ -10,28 +10,28 @@ using Microsoft.AspNetCore.Mvc;
 using Rebus;
 using Rebus.Bus;
 using SpareParts.DataAccessObject;
-using SpareParts.Vehicle.Api.Models.Movie;
+using SpareParts.Vehicle.Api.Models.Vehicle;
 using SpareParts.Vehicle.Cqrs.Commands;
 
 namespace SpareParts.Vehicle.Api.Controllers
 {
     [Route("[controller]")]
-    public class MovieController : Controller
+    public class VehicleController : Controller
     {
 
-        // GET api/values
+        // GET api/vehicle
         [HttpGet]
         public IQueryable<GetModel> Get(
-            [FromServices]IDataAccessObject<ReadModel.Movie> movieDataAccessObject,
+            [FromServices]IDataAccessObject<ReadModel.Vehicle> vehicleDataAccessObject,
             [FromServices]IMapper mapper)
         {
-            return movieDataAccessObject.ProjectTo<GetModel>(mapper.ConfigurationProvider);
+            return vehicleDataAccessObject.ProjectTo<GetModel>(mapper.ConfigurationProvider);
         }
 
-        // GET suggestion/{id}
+        // GET api/vehicle/{id}
         [HttpGet("{id}")]
         public IActionResult Get(
-            [FromServices]IDataAccessObject<ReadModel.Movie> suggestionsDataAccessObject,
+            [FromServices]IDataAccessObject<ReadModel.Vehicle> suggestionsDataAccessObject,
             [FromServices]IMapper mapper,
             string id)
         {
@@ -46,7 +46,7 @@ namespace SpareParts.Vehicle.Api.Controllers
             return Ok(result);
         }
 
-        // POST api/values
+        // POST api/vehicle
         [HttpPost]
         public async Task<IActionResult> Post(
                 [FromServices] IBus bus,
@@ -60,17 +60,19 @@ namespace SpareParts.Vehicle.Api.Controllers
                 return BadRequest(ModelState);
             }
 
-            var command = new AddMovieCommand
-            {
-                Id = NewId.Next().ToString(),
-                Title = model.Title,
-                Year = model.Year
-            };
+            var command = new AddVehicleCommand(
+                NewId.Next().ToString(),
+                model.Brand,
+                model.Customer,
+                model.Plate,
+                model.Model,
+                model.Color,
+                model.Year);
 
             //await bus.Send(command);
-            string movieId = await bus.SendRequest<string>(command, timeout: TimeSpan.FromMinutes(1));
+            string vehicleId = await bus.SendRequest<string>(command, timeout: TimeSpan.FromMinutes(1));
 
-            return CreatedAtAction("Get", new { id = movieId });
+            return CreatedAtAction("Get", new { id = vehicleId }, vehicleId);
         }
 
     }

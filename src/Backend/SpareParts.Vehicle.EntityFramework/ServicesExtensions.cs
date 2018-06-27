@@ -18,19 +18,19 @@ namespace Microsoft.Extensions.DependencyInjection
 {
     public static class ServicesExtensions
     {
-        public static IServiceCollection AddCatalogEntityFrameworkRepositories(this IServiceCollection services, Action<DbContextOptionsBuilder> options, ServiceLifetime lifetime = ServiceLifetime.Scoped)
+        public static IServiceCollection AddVehicleEntityFrameworkRepositories(this IServiceCollection services, Action<DbContextOptionsBuilder> options, ServiceLifetime lifetime = ServiceLifetime.Scoped)
         {
-            services.AddDbContext<CatalogEntities>(options, lifetime);
+            services.AddDbContext<VehicleEntities>(options, lifetime);
             services.AddSingleton<IHostedService, EntitiesHostedServices>();
 
-            services.TryAddTransient<IRepository<Movie>, DbRepository<Movie, CatalogEntities>>();
+            services.TryAddTransient<IRepository<Vehicle>, DbRepository<Vehicle, VehicleEntities>>();
 
             return services;
         }
 
-        public static IServiceCollection AddCatalogEntityFrameworkDataAccessObjects(this IServiceCollection services)
+        public static IServiceCollection AddVehicleEntityFrameworkDataAccessObjects(this IServiceCollection services)
         {
-            services.TryAddTransient<IDataAccessObject<SpareParts.Vehicle.ReadModel.Movie>, MovieDataAccessObject>();
+            services.TryAddTransient<IDataAccessObject<SpareParts.Vehicle.ReadModel.Vehicle>, VehicleDataAccessObject>();
 
             return services;
         }
@@ -48,8 +48,8 @@ namespace Microsoft.Extensions.DependencyInjection
             {
                 using (var scope = _serviceProvider.CreateScope())
                 {
-                    var c = scope.ServiceProvider.GetRequiredService<CatalogEntities>().Database.GetDbConnection();
-                    DatabaseFacade database = scope.ServiceProvider.GetRequiredService<CatalogEntities>().Database;
+                    var c = scope.ServiceProvider.GetRequiredService<VehicleEntities>().Database.GetDbConnection();
+                    DatabaseFacade database = scope.ServiceProvider.GetRequiredService<VehicleEntities>().Database;
                     //await database.EnsureDeletedAsync(cancellationToken);
                     await database.EnsureCreatedAsync(cancellationToken);
                 }

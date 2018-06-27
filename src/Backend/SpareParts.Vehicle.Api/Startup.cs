@@ -22,16 +22,16 @@ namespace SpareParts.Vehicle.Api
         {
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddUser(c => c.GetService<IHttpContextAccessor>()?.HttpContext?.User);
-            services.AddCatalogEntityFrameworkRepositories(o => o.UseSqlServer(Configuration.GetConnectionString("SpareParts")));
-            services.AddCatalogEntityFrameworkDataAccessObjects();
+            services.AddVehicleEntityFrameworkRepositories(o => o.UseSqlServer(Configuration.GetConnectionString("SpareParts")));
+            services.AddVehicleEntityFrameworkDataAccessObjects();
 
             services.AddSingleton(MapperConfig.Get);
 
-            //services.AddServiceBus(r => r.AddCatalogHandlers()
-            //        .AddCatalogQueue()
-            //        .AddCatalogCommandsRoute()
-            //        .AddCatalogEventsRoute()
-            //        .CatalogSubscribe());
+            services.AddServiceBus(r => r.AddVehicleHandlers()
+                    .AddVehicleQueue()
+                    .AddVehicleCommandsRoute()
+                    .AddVehicleEventsRoute()
+                    .VehicleSubscribe());
 
             services.AddMvc();
         }

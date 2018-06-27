@@ -2,13 +2,11 @@
 {
     public static class Queues
     {
-        public static readonly CatalogQueues Catalog = new CatalogQueues();
+        public static readonly VehicleQueues Vehicle = new VehicleQueues();
 
-        public static readonly TasteQueues Taste = new TasteQueues();
-
-        public class CatalogQueues
+        public class VehicleQueues
         {
-            protected internal CatalogQueues()
+            protected internal VehicleQueues()
             {
                 
             }
@@ -18,17 +16,6 @@
             public readonly string EventsQueueName = "Catalog-Events";
 
         }
-        public class TasteQueues
-        {
-            protected internal TasteQueues()
-            {
 
-            }
-
-            public readonly string QueueName = "Taste";
-
-            public readonly string EventsQueueName = "Taste-Events";
-
-        }
     }
 }

@@ -8,23 +8,23 @@ namespace SpareParts.Cqrs
 {
     public static class CqrsExtensions
     {
-        public static ICqrsConfigurer AddCatalogQueue(this ICqrsConfigurer configurer)
+        public static ICqrsConfigurer AddVehicleQueue(this ICqrsConfigurer configurer)
         {
-            configurer.AddQueue(Queues.Catalog.QueueName);
+            configurer.AddQueue(Queues.Vehicle.QueueName);
 
             return configurer;
         }
 
-        public static ICqrsConfigurer AddCatalogCommandsRoute(this ICqrsConfigurer configurer)
+        public static ICqrsConfigurer AddVehicleCommandsRoute(this ICqrsConfigurer configurer)
         {
-            configurer.AddCommandsRouteFromAssemblyOfType<AddMovieCommand>(Queues.Catalog.QueueName);
+            configurer.AddCommandsRouteFromAssemblyOfType<AddVehicleCommand>(Queues.Vehicle.QueueName);
 
             return configurer;
         }
 
-        public static ICqrsConfigurer AddCatalogEventsRoute(this ICqrsConfigurer configurer)
+        public static ICqrsConfigurer AddVehicleEventsRoute(this ICqrsConfigurer configurer)
         {
-            configurer.AddEventsRouteFromAssemblyOfType<MovieAddedEvent>(Queues.Catalog.EventsQueueName);
+            configurer.AddEventsRouteFromAssemblyOfType<VehicleAddedEvent>(Queues.Vehicle.EventsQueueName);
 
             return configurer;
         }
