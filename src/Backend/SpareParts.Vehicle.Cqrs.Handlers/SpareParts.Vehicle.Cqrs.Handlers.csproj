@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.0.1" />
+    <PackageReference Include="Rebus" Version="4.2.1" />
+    <PackageReference Include="Rebus.TransactionScope" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SpareParts.DataAccessObject\SpareParts.DataAccessObject.csproj" />
+    <ProjectReference Include="..\SpareParts.Repository\SpareParts.Repository.csproj" />
+    <ProjectReference Include="..\SpareParts.Vehicle.Cqrs\SpareParts.Vehicle.Cqrs.csproj" />
+    <ProjectReference Include="..\SpareParts.Vehicle.DomainModel\SpareParts.Vehicle.DomainModel.csproj" />
+    <ProjectReference Include="..\SpareParts.Vehicle.ReadModel\SpareParts.Vehicle.ReadModel.csproj" />
+  </ItemGroup>
+
+</Project>
