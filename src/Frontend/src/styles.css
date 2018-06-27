@@ -20,5 +20,11 @@ body {
     flex-direction: column;
   }
   
+ .part-container{
+   display: flex;
+   flex-direction: row;
+   background: #424242;
+   margin-bottom: 30px;
+ }
   
   

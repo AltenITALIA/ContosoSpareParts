@@ -47,11 +47,11 @@ export class VehiclesComponent implements OnInit {
         console.log("Dialog output:", data);
         if (data != undefined) {
           this.vehiclesService.addVehicle(data as vehicle).subscribe(
-            id => {
+            veicleId => {
               let d = this.vehicles.data;
               d.push(data as vehicle);
               this.vehicles = new MatTableDataSource(d);
-              console.log("vehicle created with id:", id);
+              console.log("vehicle created with id:", veicleId);
             }
           );
         }
