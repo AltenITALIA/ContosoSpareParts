@@ -15,13 +15,12 @@ namespace SpareParts.Vehicle.Api
                 .WriteTo.ColoredConsole(LogEventLevel.Information)
                 .CreateLogger();
 
-            BuildWebHost(args).Run();
+            CreateWebHostBuilder(args).Build().Run();
         }
 
-        public static IWebHost BuildWebHost(string[] args) =>
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .ConfigureLogging(l => l.ClearProviders().AddSerilog())
-                .UseStartup<Startup>()
-                .Build();
+                .UseStartup<Startup>();
     }
 }
