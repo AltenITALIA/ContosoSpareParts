@@ -32,7 +32,7 @@ namespace Microsoft.Extensions.DependencyInjection
             {
                 configurer.Provider = provider;
                 string connectionString = provider.GetRequiredService<IConfiguration>().GetConnectionString("Rebus");
-                EnsureDatabaseCreated(connectionString);
+                //EnsureDatabaseCreated(connectionString);
 
                 return configure
                     .Serialization(s => s.UseNewtonsoftJson())
@@ -58,29 +58,29 @@ namespace Microsoft.Extensions.DependencyInjection
             return services;
         }
 
-        private static void EnsureDatabaseCreated(string connectionString)
-        {
-            var builder = new SqlConnectionStringBuilder(connectionString);
-            string databaseName = builder.InitialCatalog;
-            builder.InitialCatalog = "master";
-            using (var connection = new SqlConnection(builder.ConnectionString))
-            {
-                connection.Open();
-                using (SqlCommand command = connection.CreateCommand())
-                {
-                    command.CommandText = $@"IF (NOT EXISTS (SELECT name 
-                    FROM master.dbo.sysdatabases
-                    WHERE(name = @n))) BEGIN CREATE DATABASE [{databaseName}]; END";
+        //private static void EnsureDatabaseCreated(string connectionString)
+        //{
+        //    var builder = new SqlConnectionStringBuilder(connectionString);
+        //    string databaseName = builder.InitialCatalog;
+        //    builder.InitialCatalog = "master";
+        //    using (var connection = new SqlConnection(builder.ConnectionString))
+        //    {
+        //        connection.Open();
+        //        using (SqlCommand command = connection.CreateCommand())
+        //        {
+        //            command.CommandText = $@"IF (NOT EXISTS (SELECT name 
+        //            FROM master.dbo.sysdatabases
+        //            WHERE(name = @n))) BEGIN CREATE DATABASE [{databaseName}]; END";
 
-                    SqlParameter sqlParameter = command.CreateParameter();
-                    sqlParameter.ParameterName = "@n";
-                    sqlParameter.Value = databaseName;
+        //            SqlParameter sqlParameter = command.CreateParameter();
+        //            sqlParameter.ParameterName = "@n";
+        //            sqlParameter.Value = databaseName;
 
-                    command.Parameters.Add(sqlParameter);
-                    command.ExecuteNonQuery();
-                }
-            }
-        }
+        //            command.Parameters.Add(sqlParameter);
+        //            command.ExecuteNonQuery();
+        //        }
+        //    }
+        //}
 
         private class RebusHostedService : IHostedService
         {
