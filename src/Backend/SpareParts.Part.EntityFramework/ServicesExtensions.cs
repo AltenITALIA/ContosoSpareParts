@@ -24,6 +24,7 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddSingleton<IHostedService, EntitiesHostedServices>();
 
             services.TryAddTransient<IRepository<Part>, DbRepository<Part, PartEntities>>();
+            services.TryAddTransient<IRepository<History>, DbRepository<History, PartEntities>>();
 
             return services;
         }
@@ -31,6 +32,7 @@ namespace Microsoft.Extensions.DependencyInjection
         public static IServiceCollection AddPartEntityFrameworkDataAccessObjects(this IServiceCollection services)
         {
             services.TryAddTransient<IDataAccessObject<SpareParts.Part.ReadModel.Part>, PartDataAccessObject>();
+            services.TryAddTransient<IDataAccessObject<SpareParts.Part.ReadModel.History>, HistoryDataAccessObject>();
 
             return services;
         }

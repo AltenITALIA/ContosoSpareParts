@@ -10,33 +10,33 @@ using Microsoft.AspNetCore.Mvc;
 using Rebus;
 using Rebus.Bus;
 using SpareParts.DataAccessObject;
-using SpareParts.Vehicle.Api.Models.Vehicle;
-using SpareParts.Vehicle.Cqrs.Commands;
+using SpareParts.Part.Api.Models.History;
+using SpareParts.Part.Cqrs.Commands;
 
-namespace SpareParts.Vehicle.Api.Controllers
+namespace SpareParts.Part.Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class VehicleController : Controller
+    public class HistoryController : Controller
     {
 
-        // GET api/vehicle
+        // GET api/part
         [HttpGet]
         public IQueryable<GetModel> Get(
-            [FromServices]IDataAccessObject<ReadModel.Vehicle> vehicleDataAccessObject,
+            [FromServices]IDataAccessObject<Part.ReadModel.History> dataAccessObject,
             [FromServices]IMapper mapper)
         {
-            return vehicleDataAccessObject.ProjectTo<GetModel>(mapper.ConfigurationProvider);
+            return dataAccessObject.ProjectTo<GetModel>(mapper.ConfigurationProvider);
         }
 
-        // GET api/vehicle/{id}
-        [HttpGet("{id}")]
+        // GET api/part/{code}
+        [HttpGet("byVehicle/{vehicleId}")]
         public IActionResult Get(
-            [FromServices]IDataAccessObject<ReadModel.Vehicle> suggestionsDataAccessObject,
+            [FromServices]IDataAccessObject<Part.ReadModel.History> dataAccessObject,
             [FromServices]IMapper mapper,
-            string id)
+            string vehicleId)
         {
-            GetModel result = suggestionsDataAccessObject.Where(d => d.Id == id)
+            GetModel result = dataAccessObject.Where(d => d.VehicleId == vehicleId)
                 .ProjectTo<GetModel>(mapper.ConfigurationProvider)
                 .FirstOrDefault();
             if (result == null)
@@ -47,7 +47,7 @@ namespace SpareParts.Vehicle.Api.Controllers
             return Ok(result);
         }
 
-        // POST api/vehicle
+        // POST api/part
         [HttpPost]
         public async Task<IActionResult> Post(
                 [FromServices] IBus bus,
@@ -56,19 +56,11 @@ namespace SpareParts.Vehicle.Api.Controllers
             // Hack: just for testing claims into the command handler
             HttpContext.User = new ClaimsPrincipal(new ClaimsIdentity(new[] { new Claim(ClaimsIdentity.DefaultNameClaimType, "test") }, "test"));
 
-            var command = new AddVehicleCommand(
-                NewId.Next().ToString(),
-                model.Brand,
-                model.Customer,
-                model.Plate,
-                model.Model,
-                model.Color,
-                model.Year);
+            var command = new AddHistoryCommand(NewId.Next().ToString(), model.PartCode, model.VehicleId);
 
-            //await bus.Send(command);
-            string vehicleId = await bus.SendRequest<string>(command, timeout: TimeSpan.FromMinutes(1));
-
-            return CreatedAtAction("Get", new { id = vehicleId }, vehicleId);
+            string id = await bus.SendRequest<string>(command);
+            
+            return CreatedAtAction("Get", new { id = id}, id);
         }
 
     }

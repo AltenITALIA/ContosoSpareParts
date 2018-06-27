@@ -25,8 +25,17 @@ namespace SpareParts.Part.EntityFramework.DataModel
             modelBuilder.Entity<DomainModel.Part>().Property(m => m.Code).HasMaxLength(255);
             modelBuilder.Entity<DomainModel.Part>().Property(m => m.Name).HasMaxLength(255).IsRequired();
             modelBuilder.Entity<DomainModel.Part>().Property(m => m.PhotoUri).HasMaxLength(1000);
+
+            modelBuilder.Entity<DomainModel.History>().HasKey(m => m.Id);
+            modelBuilder.Entity<DomainModel.History>().Property(m => m.Id).HasMaxLength(36).IsRequired();
+            modelBuilder.Entity<DomainModel.History>().Property(m => m.Date).IsRequired();
+            modelBuilder.Entity<DomainModel.History>().Property(m => m.PartCode).HasMaxLength(255).IsRequired();
+            modelBuilder.Entity<DomainModel.History>().Property(m => m.VehicleId).HasMaxLength(36).IsRequired();
+            modelBuilder.Entity<DomainModel.History>().Property(m => m.PhotoUri).HasMaxLength(1000);
         }
 
         public DbSet<DomainModel.Part> Parts { get; set; }
+
+        public DbSet<DomainModel.History> Histories { get; set; }
     }
 }

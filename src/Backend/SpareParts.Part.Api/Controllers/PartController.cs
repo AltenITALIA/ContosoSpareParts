@@ -15,6 +15,7 @@ using SpareParts.Part.Cqrs.Commands;
 
 namespace SpareParts.Part.Api.Controllers
 {
+    [ApiController]
     [Route("[controller]")]
     public class PartController : Controller
     {
@@ -54,11 +55,6 @@ namespace SpareParts.Part.Api.Controllers
         {
             // Hack: just for testing claims into the command handler
             HttpContext.User = new ClaimsPrincipal(new ClaimsIdentity(new[] { new Claim(ClaimsIdentity.DefaultNameClaimType, "test") }, "test"));
-
-            if (model == null || !ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
 
             var command = new AddPartCommand(model.Code, model.Name);
 

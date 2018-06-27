@@ -17,7 +17,7 @@ namespace SpareParts.Cqrs
 
         public static void PartSubscribe(this ICqrsConfigurer configurer)
         {
-            configurer.Subscribe<PartAddedEvent>();
+           
         }
     }
 }

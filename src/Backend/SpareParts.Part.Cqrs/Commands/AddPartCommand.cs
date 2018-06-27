@@ -3,16 +3,19 @@ using SpareParts.Cqrs;
 
 namespace SpareParts.Part.Cqrs.Commands
 {
-    public class AddPartCommand : CommandBase
+    public class AddHistoryCommand : CommandBase
     {
-        public AddPartCommand(string code, string name)
+        public AddHistoryCommand(string id, string partCode, string vehicleId)
         {
-            Code = code ?? throw new ArgumentNullException(nameof(code));
-            Name = name ?? throw new ArgumentNullException(nameof(name));          
+            Id = id ?? throw new ArgumentNullException(nameof(id));
+            PartCode = partCode ?? throw new ArgumentNullException(nameof(partCode));
+            VehicleId = vehicleId ?? throw new ArgumentNullException(nameof(vehicleId));          
         }
 
-        public string Name { get; }
-   
-        public string Code { get; }
+        public string VehicleId { get; }
+
+        public string Id { get; }
+
+        public string PartCode { get; }
     }
 }
