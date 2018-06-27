@@ -1,0 +1,5 @@
+MainPackage=E:\Dev\Community\DeepDevDay18\src\IoT\Contoso.IoT.UWP\Contoso.IoT.UWP\bin\ARM\Debug\Contoso.IoT.UWP_1.0.0.0_ARM_Debug.appx
+SymbolPackage=E:\Dev\Community\DeepDevDay18\src\IoT\Contoso.IoT.UWP\Contoso.IoT.UWP\AppPackages\Contoso.IoT.UWP_1.0.0.0_Debug_Test\Contoso.IoT.UWP_1.0.0.0_ARM_Debug.appxsym
+ResourcePack=E:\Dev\Community\DeepDevDay18\src\IoT\Contoso.IoT.UWP\Contoso.IoT.UWP\bin\ARM\Debug\Contoso.IoT.UWP_1.0.0.0_scale-140.appx
+ResourcePack=E:\Dev\Community\DeepDevDay18\src\IoT\Contoso.IoT.UWP\Contoso.IoT.UWP\bin\ARM\Debug\Contoso.IoT.UWP_1.0.0.0_scale-180.appx
+ResourcePack=E:\Dev\Community\DeepDevDay18\src\IoT\Contoso.IoT.UWP\Contoso.IoT.UWP\bin\ARM\Debug\Contoso.IoT.UWP_1.0.0.0_scale-240.appx
