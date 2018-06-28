@@ -20,7 +20,7 @@ namespace SpareParts.Part.Api.Controllers
     public class HistoryController : Controller
     {
 
-        // GET api/part
+        // GET api/history
         [HttpGet]
         public IQueryable<GetModel> Get(
             [FromServices]IDataAccessObject<Part.ReadModel.History> dataAccessObject,
@@ -29,25 +29,17 @@ namespace SpareParts.Part.Api.Controllers
             return dataAccessObject.ProjectTo<GetModel>(mapper.ConfigurationProvider);
         }
 
-        // GET api/part/{code}
+        // GET api/history/{vehicleId}
         [HttpGet("byVehicle/{vehicleId}")]
-        public IActionResult Get(
+        public IQueryable<GetModel> Get(
             [FromServices]IDataAccessObject<Part.ReadModel.History> dataAccessObject,
             [FromServices]IMapper mapper,
             string vehicleId)
         {
-            GetModel result = dataAccessObject.Where(d => d.VehicleId == vehicleId)
-                .ProjectTo<GetModel>(mapper.ConfigurationProvider)
-                .FirstOrDefault();
-            if (result == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(result);
+            return dataAccessObject.Where(d => d.VehicleId == vehicleId).ProjectTo<GetModel>(mapper.ConfigurationProvider);
         }
 
-        // POST api/part
+        // POST api/history
         [HttpPost]
         public async Task<IActionResult> Post(
                 [FromServices] IBus bus,

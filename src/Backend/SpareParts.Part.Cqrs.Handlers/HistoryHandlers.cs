@@ -35,7 +35,7 @@ namespace SpareParts.Part.Cqrs.Handlers
 
         public async Task Handle(AddHistoryCommand command)
         {
-            if (await _dataAccessObject.AnyAsync(m => m.PartCode == command.PartCode && m.VehicleId == command.VehicleId))
+            if (await _dataAccessObject.AnyAsync(m => m.Id == command.Id))
             {
                 _logger.LogWarning("Part history {code} for {vehicleId} already added", command.PartCode, command.VehicleId);
 

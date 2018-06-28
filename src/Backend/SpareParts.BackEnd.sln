@@ -43,6 +43,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpareParts.Part.Cqrs.Handle
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpareParts.Part.Api", "SpareParts.Part.Api\SpareParts.Part.Api.csproj", "{7D7F4BBD-FE72-4618-AAD0-39EF58DD5364}"
 EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{4CFE93F0-A363-4981-B095-8936D18040B9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -117,6 +119,10 @@ Global
 		{7D7F4BBD-FE72-4618-AAD0-39EF58DD5364}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D7F4BBD-FE72-4618-AAD0-39EF58DD5364}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D7F4BBD-FE72-4618-AAD0-39EF58DD5364}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CFE93F0-A363-4981-B095-8936D18040B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CFE93F0-A363-4981-B095-8936D18040B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CFE93F0-A363-4981-B095-8936D18040B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CFE93F0-A363-4981-B095-8936D18040B9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -18,7 +18,7 @@ namespace SpareParts.Part.DomainModel
             Id = id;
             PartCode = partCode;
             VehicleId = vehicleId;
-            Date = DateTime.Today;
+            Date = DateTime.Now;
         }
 
         public string Id { get; private set; }

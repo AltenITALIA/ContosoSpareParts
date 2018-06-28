@@ -29,6 +29,16 @@ namespace SpareParts.Vehicle.Api.Controllers
             return vehicleDataAccessObject.ProjectTo<GetModel>(mapper.ConfigurationProvider);
         }
 
+        // GET api/vehicle
+        [HttpGet("byPlate/{plate}")]
+        public IQueryable<GetModel> GetByPlate(
+            string plate,
+            [FromServices]IDataAccessObject<ReadModel.Vehicle> vehicleDataAccessObject,
+            [FromServices]IMapper mapper)
+        {
+            return vehicleDataAccessObject.Where(p => p.Plate.Contains(plate)).ProjectTo<GetModel>(mapper.ConfigurationProvider);
+        }
+
         // GET api/vehicle/{id}
         [HttpGet("{id}")]
         public IActionResult Get(

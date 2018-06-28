@@ -12,6 +12,8 @@ namespace SpareParts.Part.EntityFramework.DataAccessObject
 
         protected override IQueryable<Part.ReadModel.History> Query => Context.Histories.Select(m => new Part.ReadModel.History
         {
+            Id = m.Id,
+            Date = m.Date,
             PartCode = m.PartCode,
             PhotoUri = m.PhotoUri,
             VehicleId = m.VehicleId
