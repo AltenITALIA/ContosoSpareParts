@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpareParts.Mobile.Android", "SpareParts.Mobile\SpareParts.Mobile.Android\SpareParts.Mobile.Android.csproj", "{FAAE86B3-8165-4AB1-9E78-88D01DE1BDDF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpareParts.Mobile.Android", "SpareParts.Mobile.Android\SpareParts.Mobile.Android.csproj", "{FAAE86B3-8165-4AB1-9E78-88D01DE1BDDF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpareParts.Mobile.iOS", "SpareParts.Mobile\SpareParts.Mobile.iOS\SpareParts.Mobile.iOS.csproj", "{38DB8519-EF10-412C-8952-EB558AB474B2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpareParts.Mobile.iOS", "SpareParts.Mobile.iOS\SpareParts.Mobile.iOS.csproj", "{38DB8519-EF10-412C-8952-EB558AB474B2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpareParts.Mobile", "SpareParts.Mobile\SpareParts.Mobile\SpareParts.Mobile.csproj", "{FDD2D1C0-6C82-4038-A1D8-C3B65BAE2915}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpareParts.Mobile", "SpareParts.Mobile\SpareParts.Mobile.csproj", "{FDD2D1C0-6C82-4038-A1D8-C3B65BAE2915}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{8E478FF3-5348-4FBD-A62E-C7E651FF5FD8}"
 EndProject
