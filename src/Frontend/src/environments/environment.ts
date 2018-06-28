@@ -7,7 +7,8 @@ export const environment = {
   getVehicleUrl:'https://contoso-spare-parts.azure-api.net/vehicles/',
   addVehicleUrl:'https://contoso-spare-parts.azure-api.net/vehicles/',
   deleteVehicleUrl:'https://contoso-spare-parts.azure-api.net/vehicles/',
-  getPartUrl:'https://contoso-spare-parts.azure-api.net/parts/'
+  getPartUrl:'https://contoso-spare-parts.azure-api.net/parts/',
+  addPartUrl:'https://contoso-spare-parts.azure-api.net/parts/'
 };
 
 /*
