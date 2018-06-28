@@ -17,9 +17,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Common\SpareParts.ApiClient\SpareParts.ApiClient.csproj" />
-    <ProjectReference Include="..\..\..\Common\SpareParts.ApiModel\SpareParts.ApiModel.csproj" />
-    <ProjectReference Include="..\..\CustomVisionClient\CustomVisionClient.csproj" />
+    <ProjectReference Include="..\..\Common\SpareParts.ApiClient\SpareParts.ApiClient.csproj" />
+    <ProjectReference Include="..\..\Common\SpareParts.ApiModel\SpareParts.ApiModel.csproj" />
+    <ProjectReference Include="..\CustomVisionClient\CustomVisionClient.csproj" />
   </ItemGroup>
 
   <ItemGroup>
