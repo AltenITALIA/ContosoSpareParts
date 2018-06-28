@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Grid
+    x:Class="SpareParts.Mobile.Controls.History"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:common="clr-namespace:SpareParts.Mobile.Common"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:local="clr-namespace:SpareParts.Mobile">
+
+    <BoxView
+        HorizontalOptions="Start"
+        WidthRequest="5"
+        Color="{StaticResource VehicleListBarColor}" />
+    <StackLayout>
+        <Label Margin="12,0,4,0">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Style="{StaticResource VehicleListLabelStyle}" Text="Data: " />
+                    <Span Style="{StaticResource VehicleListLabelValueStyle}" Text="{Binding Date, Converter={StaticResource DateTimeOffsetToLocalTimeConverter}}" />
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+        <Label Margin="12,0,0,0">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Style="{StaticResource VehicleListLabelStyle}" Text="Parte: " />
+                    <Span Style="{StaticResource VehicleListLabelValueStyle}" Text="{Binding PartCode}" />
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+        <ffimageloading:CachedImage
+            Margin="5,0,0,0"
+            HeightRequest="150"
+            LoadingDelay="0"
+            RetryCount="0"
+            Source="{Binding PhotoUri}"
+            WidthRequest="150">
+            <ffimageloading:CachedImage.LoadingPlaceholder>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="Android">loading_placeholder.gif</On>
+                    <On Platform="iOS">Images/LoadingPlaceholder.gif</On>
+                </OnPlatform>
+            </ffimageloading:CachedImage.LoadingPlaceholder>
+            <ffimageloading:CachedImage.ErrorPlaceholder>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="Android">image_error_placeholder.png</On>
+                    <On Platform="iOS">Images/ImageErrorPlaceholder.png</On>
+                </OnPlatform>
+            </ffimageloading:CachedImage.ErrorPlaceholder>
+        </ffimageloading:CachedImage>
+    </StackLayout>
+
+</Grid>

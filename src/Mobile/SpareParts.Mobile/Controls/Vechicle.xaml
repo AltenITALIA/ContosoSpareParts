@@ -4,8 +4,7 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:common="clr-namespace:SpareParts.Mobile.Common"
-    xmlns:local="clr-namespace:SpareParts.Mobile"
-    Margin="0,10,0,0">
+    xmlns:local="clr-namespace:SpareParts.Mobile">
 
     <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
@@ -48,7 +47,7 @@
     <Label
         Grid.Row="0"
         Grid.Column="2"
-        Margin="0,0,4,0">
+        Margin="0,0,1,0">
         <Label.FormattedText>
             <FormattedString>
                 <Span Style="{StaticResource VehicleListLabelStyle}" Text="Targa: " />
@@ -57,12 +56,14 @@
         </Label.FormattedText>
     </Label>
 
-    <BoxView
+    <Frame
         Grid.Row="1"
         Grid.Column="0"
         Margin="12,0,12,0"
-        HeightRequest="5"
-        Color="{Binding Color, Converter={StaticResource StringToColorConverter}}" />
+        Padding="1"
+        BorderColor="White">
+        <BoxView HeightRequest="5" Color="{Binding Color, Converter={StaticResource StringToColorConverter}}" />
+    </Frame>
 
     <Label Grid.Row="1" Grid.Column="1">
         <Label.FormattedText>

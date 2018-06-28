@@ -49,52 +49,10 @@
 
                         <controls:ExtendedFlexLayout.ItemTemplate>
                             <DataTemplate>
-                                <Grid Margin="0,0,0,10" HeightRequest="200">
-                                    <BoxView
-                                        HorizontalOptions="Start"
-                                        WidthRequest="5"
-                                        Color="{StaticResource VehicleListBarColor}" />
-                                    <StackLayout>
-                                        <Label Margin="12,0,4,0">
-                                            <Label.FormattedText>
-                                                <FormattedString>
-                                                    <Span Style="{StaticResource VehicleListLabelStyle}" Text="Data: " />
-                                                    <Span Style="{StaticResource VehicleListLabelValueStyle}" Text="{Binding Date, StringFormat='{0:dd/MM/yyyy hh\\:mm}'}" />
-                                                </FormattedString>
-                                            </Label.FormattedText>
-                                        </Label>
-
-                                        <Label Margin="12,0,0,0">
-                                            <Label.FormattedText>
-                                                <FormattedString>
-                                                    <Span Style="{StaticResource VehicleListLabelStyle}" Text="Parte: " />
-                                                    <Span Style="{StaticResource VehicleListLabelValueStyle}" Text="{Binding PartCode}" />
-                                                </FormattedString>
-                                            </Label.FormattedText>
-                                        </Label>
-
-                                        <ffimageloading:CachedImage
-                                            Margin="5,0,0,0"
-                                            FadeAnimationEnabled="False"
-                                            HeightRequest="150"
-                                            LoadingDelay="0"
-                                            Source="{Binding PhotoUri}"
-                                            WidthRequest="150">
-                                            <ffimageloading:CachedImage.LoadingPlaceholder>
-                                                <OnPlatform x:TypeArguments="ImageSource">
-                                                    <On Platform="Android">loading_placeholder.png</On>
-                                                    <On Platform="iOS">Images/LoadingPlaceholder.png</On>
-                                                </OnPlatform>
-                                            </ffimageloading:CachedImage.LoadingPlaceholder>
-                                            <ffimageloading:CachedImage.ErrorPlaceholder>
-                                                <OnPlatform x:TypeArguments="ImageSource">
-                                                    <On Platform="Android">image_error_placeholder.png</On>
-                                                    <On Platform="iOS">Images/ImageErrorPlaceholder.png</On>
-                                                </OnPlatform>
-                                            </ffimageloading:CachedImage.ErrorPlaceholder>
-                                        </ffimageloading:CachedImage>
-                                    </StackLayout>
-                                </Grid>
+                                <controls:History
+                                    Margin="0,0,0,10"
+                                    BindingContext="{Binding .}"
+                                    HeightRequest="200" />
                             </DataTemplate>
                         </controls:ExtendedFlexLayout.ItemTemplate>
                     </controls:ExtendedFlexLayout>

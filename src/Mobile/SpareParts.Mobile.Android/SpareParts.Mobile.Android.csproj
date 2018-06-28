@@ -82,7 +82,6 @@
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
     <Compile Include="MainApplication.cs" />
-    <Compile Include="Renderers\ColoredRefreshListViewRenderer.cs" />
     <Compile Include="Renderers\DarkEntryRenderer.cs" />
     <Compile Include="Renderers\DarkSearchBarRenderer.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />

@@ -15,6 +15,7 @@
 
             <converters:FirstCharToUpperConverter x:Key="FirstCharToUpperConverter" />
             <converters:StringToColorConverter x:Key="StringToColorConverter" />
+            <converters:DateTimeOffsetToLocalTimeConverter x:Key="DateTimeOffsetToLocalTimeConverter" />
         </ResourceDictionary>
 
     </Application.Resources>

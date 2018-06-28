@@ -66,12 +66,12 @@ namespace SpareParts.Mobile.ViewModels
                 {
                     await DialogService.AlertAsync("Nessun veicolo trovato con la targa specificata.", "Ricerca veicoli");
                 }
-                else if (Vehicles.Count() == 1)
-                {
-                    // E' stato trovato un solo veicolo, quindi passa direttamente alla pagina di dettaglio relativa.
-                    await Task.Delay(500);
-                    await GotoVehicleHistoryAsync(Vehicles.First());
-                }
+                //else if (Vehicles.Count() == 1)
+                //{
+                //    // E' stato trovato un solo veicolo, quindi passa direttamente alla pagina di dettaglio relativa.
+                //    await Task.Delay(500);
+                //    await GotoVehicleHistoryAsync(Vehicles.First());
+                //}
             }
             catch (Exception ex)
             {

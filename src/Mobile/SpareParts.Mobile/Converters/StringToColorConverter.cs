@@ -29,6 +29,13 @@ namespace SpareParts.Mobile.Converters
                 }
                 catch
                 {
+                    try
+                    {
+                        color = (Color)converter.ConvertFromInvariantString($"#{input}");
+                    }
+                    catch
+                    {
+                    }
                 }
             }
 

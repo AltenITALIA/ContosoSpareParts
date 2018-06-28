@@ -43,7 +43,7 @@
                 Text="{Binding SearchText}">
                 <SearchBar.Margin>
                     <OnPlatform x:TypeArguments="Thickness">
-                        <On Platform="UWP, iOS">0,0,0,0</On>
+                        <On Platform="iOS">0,0,0,0</On>
                         <On Platform="Android">-15,0,0,0</On>
                     </OnPlatform>
                 </SearchBar.Margin>
@@ -57,7 +57,7 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <controls:Vehicle BindingContext="{Binding .}" />
+                            <controls:Vehicle Margin="0,10,0,0" BindingContext="{Binding .}" />
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

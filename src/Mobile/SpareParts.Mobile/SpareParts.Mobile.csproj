@@ -23,6 +23,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Controls\History.xaml.cs">
+      <DependentUpon>History.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Controls\Vechicle.xaml.cs">
       <DependentUpon>Vechicle.xaml</DependentUpon>
     </Compile>
