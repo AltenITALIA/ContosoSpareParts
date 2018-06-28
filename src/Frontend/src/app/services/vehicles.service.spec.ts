@@ -1,6 +1,6 @@
 
 import { VehiclesService } from './vehicles.service';
-import { vehicle } from '../models/vehicle';
+import { Vehicle } from '../models/vehicle';
 import { defer } from 'rxjs';
 
 /** Create async observable that emits-once and completes
@@ -27,7 +27,7 @@ beforeEach(() => {
 });
 
 it('should return expected vehicles (HttpClient called once)', () => {
-  const expectedVehicle: vehicle[] =
+  const expectedVehicle: Vehicle[] =
     [{ id: "id", brand: "brand", model: "model", customer: "marco", year: 2018, plate: "plate", color: "#color" }];
  
   httpClientSpy.get.and.returnValue(asyncData(expectedVehicle));

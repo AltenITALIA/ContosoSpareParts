@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { part } from '../../models/part';
+import { Part } from '../../models/part';
 import { PartsService } from '../../services/parts.service'
 import { MatTableDataSource, MatDialog, MAT_DIALOG_DATA, MatDialogConfig } from '@angular/material';
 @Component({
@@ -9,8 +9,8 @@ import { MatTableDataSource, MatDialog, MAT_DIALOG_DATA, MatDialogConfig } from 
 })
 export class PartsComponent implements OnInit {
 
-  parts: MatTableDataSource<part>;
-  part: part = new part();
+  parts: MatTableDataSource<Part>;
+  part: Part = new Part();
   constructor(private partsService: PartsService) { }
 
   ngOnInit() {
@@ -26,7 +26,7 @@ export class PartsComponent implements OnInit {
         let data = this.parts.data;
         data.push(this.part);
         this.parts = new MatTableDataSource(data);
-        this.part = new part();
+        this.part = new Part();
       }
       );
   }

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { VehiclesService } from '../../services/vehicles.service';
-import { vehicle } from '../../models/vehicle'
+import { Vehicle } from '../../models/vehicle'
 import { MatTableDataSource, MatDialog, MAT_DIALOG_DATA, MatDialogConfig } from '@angular/material';
 import { VehiclesEditorComponent } from '../../components/vehicles-editor/vehicles-editor.component';
 import { SelectionModel } from '@angular/cdk/collections';
@@ -13,8 +13,8 @@ import { VehicleDeleteDialogComponent } from '../../components/vehicle-delete-di
 
 export class VehiclesComponent implements OnInit {
 
-  vehicles: MatTableDataSource<vehicle>;
-  selection = new SelectionModel<vehicle>(true, []);
+  vehicles: MatTableDataSource<Vehicle>;
+  selection = new SelectionModel<Vehicle>(true, []);
   selectionMode = false;
   constructor(private vehiclesService: VehiclesService, private matDialod: MatDialog) { }
 
@@ -46,10 +46,10 @@ export class VehiclesComponent implements OnInit {
       data => {
         console.log("Dialog output:", data);
         if (data != undefined) {
-          this.vehiclesService.addVehicle(data as vehicle).subscribe(
+          this.vehiclesService.addVehicle(data as Vehicle).subscribe(
             veicleId => {
               let d = this.vehicles.data;
-              d.push(data as vehicle);
+              d.push(data as Vehicle);
               this.vehicles = new MatTableDataSource(d);
               console.log("vehicle created with id:", veicleId);
             }
@@ -58,7 +58,7 @@ export class VehiclesComponent implements OnInit {
       }
     );
   }
-  deleteVehicle(vehicle: vehicle) {
+  deleteVehicle(vehicle: Vehicle) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.height = '350px';
     dialogConfig.width = '550px';

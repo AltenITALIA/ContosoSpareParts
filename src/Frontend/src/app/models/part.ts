@@ -1,5 +1,5 @@
 
-export class part {
+export class Part {
   code: string;
   name: string;
   photoUri: string;

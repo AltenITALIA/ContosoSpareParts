@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ContosoNavComponent } from './contoso-nav/contoso-nav.component';
@@ -17,6 +16,8 @@ import { ContosoHttpInterceptor } from '../app/services/contoso-http-interceptor
 import { VehiclesEditorComponent } from './components/vehicles-editor/vehicles-editor.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { VehicleDeleteDialogComponent } from './components/vehicle-delete-dialog/vehicle-delete-dialog.component';
+import { ColorPickerModule } from 'ngx-color-picker';
+import {safeColor} from '../app/pipes/safeColor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +28,8 @@ import { VehicleDeleteDialogComponent } from './components/vehicle-delete-dialog
     VeicleHistoryComponent,
     ProgressComponent,
     VehiclesEditorComponent,
-    VehicleDeleteDialogComponent
+    VehicleDeleteDialogComponent,
+    safeColor
   ],
   imports: [
     BrowserModule,
@@ -51,7 +53,8 @@ import { VehicleDeleteDialogComponent } from './components/vehicle-delete-dialog
     MatDatepickerModule, 
     MatNativeDateModule,
     MatCheckboxModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    ColorPickerModule
   ],
   providers: [MatIconRegistry,
     {
