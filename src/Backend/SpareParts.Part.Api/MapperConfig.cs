@@ -1,6 +1,5 @@
 ﻿using System;
 using AutoMapper;
-using SpareParts.Part.Api.Models.Part;
 
 namespace SpareParts.Part.Api
 {
@@ -10,7 +9,8 @@ namespace SpareParts.Part.Api
         {
             return new MapperConfiguration(e =>
             {
-                e.CreateMap<Part.ReadModel.Part, GetModel>();
+                e.CreateMap<Part.ReadModel.Part, Api.Models.Part.GetModel>();
+                e.CreateMap<Part.ReadModel.History, Api.Models.History.GetModel>();
             }).CreateMapper();
         }
     }

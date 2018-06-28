@@ -1,10 +1,12 @@
 ﻿using System;
+using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 
 namespace SpareParts.Part.Api.Models.History
 {
     public class GetModel
     {
+
         [JsonProperty("id")]
         public string Id { get; set; }
 
