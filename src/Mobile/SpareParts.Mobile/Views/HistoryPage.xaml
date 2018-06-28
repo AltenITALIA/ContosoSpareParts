@@ -5,6 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:behaviors="clr-namespace:SpareParts.Mobile.Behaviors"
     xmlns:common="clr-namespace:SpareParts.Mobile.Common"
+    xmlns:controls="clr-namespace:SpareParts.Mobile.Controls"
     xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
     xmlns:local="clr-namespace:SpareParts.Mobile"
     Title="{Binding Vehicle.Plate}"
@@ -37,7 +38,11 @@
 
     <Grid Style="{StaticResource MasterGridStyle}">
         <Grid Style="{StaticResource ContentListGridStyle}">
-            <ListView
+            <StackLayout>
+                <controls:Vehicle BindingContext="{Binding Vehicle}" />
+                <ScrollView />
+            </StackLayout>
+            <!--<ListView
                 CachingStrategy="RecycleElement"
                 IsPullToRefreshEnabled="True"
                 IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}"
@@ -52,7 +57,7 @@
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
-            </ListView>
+            </ListView>-->
         </Grid>
 
         <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />
