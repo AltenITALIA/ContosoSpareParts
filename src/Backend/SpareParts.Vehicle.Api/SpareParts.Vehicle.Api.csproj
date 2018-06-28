@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="7.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Rebus.Async" Version="5.0.0" />
+    <PackageReference Include="Serilog.AspNetCore" Version="2.1.1" />
+    <PackageReference Include="Serilog.Sinks.ColoredConsole" Version="3.0.1" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\SpareParts.Vehicle.Cqrs.Handlers\SpareParts.Vehicle.Cqrs.Handlers.csproj" />
+    <ProjectReference Include="..\SpareParts.Vehicle.Cqrs\SpareParts.Vehicle.Cqrs.csproj" />
+    <ProjectReference Include="..\SpareParts.Vehicle.EntityFramework\SpareParts.Vehicle.EntityFramework.csproj" />
+  </ItemGroup>
+
+</Project>
