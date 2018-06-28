@@ -38,7 +38,20 @@ namespace SpareParts.Mobile.Services
         public async Task<IEnumerable<GetHistory>> GetHistoryAsync(GetVehicle vehicle)
         {
             var history = await historyClient.GetByVehicleAsync(vehicle.Id);
-            return history.OrderByDescending(h => h.Date);
+            //return history.OrderByDescending(h => h.Date);
+
+            var list = new List<GetHistory>(history);
+            list.AddRange(list);
+            list.AddRange(list);
+            list.AddRange(list);
+            list.AddRange(list);
+
+            foreach (var item in list)
+            {
+                item.PhotoUri = "http://images5.fanpop.com/image/photos/25600000/DOG-ssssss-dogs-25606625-1024-768.jpg";                
+            }
+
+            return list;
         }
 
         public async Task AddHistoryAsync(GetVehicle vehicle, string partCode, string filePath)
