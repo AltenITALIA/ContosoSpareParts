@@ -5,6 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:behaviors="clr-namespace:SpareParts.Mobile.Behaviors"
     xmlns:common="clr-namespace:SpareParts.Mobile.Common"
+    xmlns:controls="clr-namespace:SpareParts.Mobile.Controls"
     xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
     xmlns:local="clr-namespace:SpareParts.Mobile"
     Title="{Binding Vehicle.Plate}"
@@ -37,22 +38,26 @@
 
     <Grid Style="{StaticResource MasterGridStyle}">
         <Grid Style="{StaticResource ContentListGridStyle}">
-            <ListView
-                CachingStrategy="RecycleElement"
-                IsPullToRefreshEnabled="True"
-                IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}"
-                ItemsSource="{Binding History}"
-                RefreshCommand="{Binding RefreshCommand}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <Grid Margin="10,10,10,10">
-                                <Label Text="{Binding Id}" />
-                            </Grid>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+            <StackLayout>
+                <controls:Vehicle BindingContext="{Binding Vehicle}" />
+                <ScrollView>
+                    <controls:ExtendedFlexLayout
+                        Direction="Row"
+                        ItemsSource="{Binding History}"
+                        JustifyContent="SpaceBetween"
+                        Wrap="Wrap">
+
+                        <controls:ExtendedFlexLayout.ItemTemplate>
+                            <DataTemplate>
+                                <controls:History
+                                    Margin="0,0,0,10"
+                                    BindingContext="{Binding .}"
+                                    HeightRequest="200" />
+                            </DataTemplate>
+                        </controls:ExtendedFlexLayout.ItemTemplate>
+                    </controls:ExtendedFlexLayout>
+                </ScrollView>
+            </StackLayout>
         </Grid>
 
         <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />

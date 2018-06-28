@@ -38,13 +38,6 @@ namespace SpareParts.Mobile.ViewModels
             set => Set(ref history, value);
         }
 
-        private bool isRefreshing;
-        public bool IsRefreshing
-        {
-            get => isRefreshing;
-            set => Set(ref isRefreshing, value, broadcast: true);
-        }
-
         public AutoRelayCommand TakePhotoCommand { get; private set; }
 
         public AutoRelayCommand PickPhotoCommand { get; private set; }
@@ -90,7 +83,7 @@ namespace SpareParts.Mobile.ViewModels
             }
             catch (Exception ex)
             {
-                await ShowErrorAsync(ex.Message);
+                await ShowErrorAsync(ex.Message, ex);
             }
             finally
             {
@@ -113,7 +106,6 @@ namespace SpareParts.Mobile.ViewModels
             finally
             {
                 IsBusy = false;
-                IsRefreshing = false;
             }
         }
     }

@@ -21,6 +21,5 @@ namespace SpareParts.ApiClient
 
         [Put("/history/photo/{id}")]
         Task UploadPhotoAsync(string id, Stream stream);
-
     }
 }

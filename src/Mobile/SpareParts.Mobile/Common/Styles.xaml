@@ -84,7 +84,6 @@
         <Setter Property="TextColor" Value="{StaticResource TextColorWithDarkBackground}" />
         <Setter Property="PlaceholderColor" Value="{StaticResource PlaceholderWithDarkBackground}" />
         <Setter Property="CancelButtonColor" Value="{StaticResource TextColorWithDarkBackground}" />
-        <!--<Setter Property="BackgroundColor"  Value="{StaticResource TextColorWithDarkBackground}" />-->
     </Style>
 
     <Style TargetType="Entry">

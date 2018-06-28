@@ -13,6 +13,7 @@ using Plugin.Permissions;
 using Plugin.Permissions.Abstractions;
 using GalaSoft.MvvmLight.Command;
 using SpareParts.ApiModel.Vehicles;
+using Microsoft.AppCenter.Analytics;
 
 namespace SpareParts.Mobile.ViewModels
 {
@@ -85,6 +86,11 @@ namespace SpareParts.Mobile.ViewModels
 
         private Task GotoVehicleHistoryAsync(GetVehicle vehicle)
         {
+            Analytics.TrackEvent("Vehicle Selected", new Dictionary<string, string>
+            {
+                ["VehicleId"] = vehicle.Id
+            });
+
             NavigationService.NavigateTo(Constants.HistoryPage, vehicle);
             return Task.CompletedTask;
         }

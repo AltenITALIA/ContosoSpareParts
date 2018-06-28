@@ -5,6 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:behaviors="clr-namespace:SpareParts.Mobile.Behaviors"
     xmlns:common="clr-namespace:SpareParts.Mobile.Common"
+    xmlns:controls="clr-namespace:SpareParts.Mobile.Controls"
     xmlns:local="clr-namespace:SpareParts.Mobile"
     Title="Contoso Spare Parts"
     BindingContext="{Binding Source={StaticResource Locator}, Path=MainViewModel}">
@@ -42,7 +43,7 @@
                 Text="{Binding SearchText}">
                 <SearchBar.Margin>
                     <OnPlatform x:TypeArguments="Thickness">
-                        <On Platform="UWP, iOS">0,0,0,0</On>
+                        <On Platform="iOS">0,0,0,0</On>
                         <On Platform="Android">-15,0,0,0</On>
                     </OnPlatform>
                 </SearchBar.Margin>
@@ -56,95 +57,7 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Grid Margin="0,10,0,0">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
-                                <BoxView
-                                    Grid.RowSpan="3"
-                                    Grid.Column="0"
-                                    HorizontalOptions="Start"
-                                    WidthRequest="5"
-                                    Color="{StaticResource VehicleListBarColor}" />
-
-                                <Label
-                                    Grid.Row="0"
-                                    Grid.Column="0"
-                                    Margin="12,0,0,0">
-                                    <Label.FormattedText>
-                                        <FormattedString>
-                                            <Span Style="{StaticResource VehicleListLabelStyle}" Text="Brand: " />
-                                            <Span Style="{StaticResource VehicleListLabelValueStyle}" Text="{Binding Brand}" />
-                                        </FormattedString>
-                                    </Label.FormattedText>
-                                </Label>
-
-                                <Label Grid.Row="0" Grid.Column="1">
-                                    <Label.FormattedText>
-                                        <FormattedString>
-                                            <Span Style="{StaticResource VehicleListLabelStyle}" Text="Modello: " />
-                                            <Span Style="{StaticResource VehicleListLabelValueStyle}" Text="{Binding Model}" />
-                                        </FormattedString>
-                                    </Label.FormattedText>
-                                </Label>
-
-                                <Label Grid.Row="0" Grid.Column="2">
-                                    <Label.FormattedText>
-                                        <FormattedString>
-                                            <Span Style="{StaticResource VehicleListLabelStyle}" Text="Targa: " />
-                                            <Span Style="{StaticResource VehicleListLabelValueStyle}" Text="{Binding Plate}" />
-                                        </FormattedString>
-                                    </Label.FormattedText>
-                                </Label>
-
-                                <BoxView
-                                    Grid.Row="1"
-                                    Grid.Column="0"
-                                    Margin="12,0,12,0"
-                                    HeightRequest="5"
-                                    Color="{Binding Color, Converter={StaticResource StringToColorConverter}}" />
-
-                                <Label Grid.Row="1" Grid.Column="1">
-                                    <Label.FormattedText>
-                                        <FormattedString>
-                                            <Span Style="{StaticResource VehicleListLabelStyle}" Text="Anno: " />
-                                            <Span Style="{StaticResource VehicleListLabelValueStyle}" Text="{Binding Year}" />
-                                        </FormattedString>
-                                    </Label.FormattedText>
-                                </Label>
-
-                                <Frame
-                                    Grid.Row="2"
-                                    Grid.Column="0"
-                                    Grid.ColumnSpan="3"
-                                    Padding="0,-5,0,-5"
-                                    BackgroundColor="{StaticResource VehicleListAlternateBackgroundColor}">
-                                    <StackLayout Orientation="Horizontal">
-                                        <BoxView WidthRequest="30" Color="{StaticResource VehicleListBarColor}">
-                                            <BoxView.Margin>
-                                                <OnPlatform x:TypeArguments="Thickness">
-                                                    <On Platform="iOS">0,5,0,0</On>
-                                                </OnPlatform>
-                                            </BoxView.Margin>
-                                        </BoxView>
-                                        <Label VerticalOptions="Center">
-                                            <Label.FormattedText>
-                                                <FormattedString>
-                                                    <Span Style="{StaticResource VehicleListLabelStyle}" Text="Cliente: " />
-                                                    <Span Style="{StaticResource VehicleListLabelValueStyle}" Text="{Binding Customer}" />
-                                                </FormattedString>
-                                            </Label.FormattedText>
-                                        </Label>
-                                    </StackLayout>
-                                </Frame>
-                            </Grid>
+                            <controls:Vehicle Margin="0,10,0,0" BindingContext="{Binding .}" />
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

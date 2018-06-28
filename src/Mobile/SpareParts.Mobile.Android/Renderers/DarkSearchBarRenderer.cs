@@ -10,6 +10,7 @@ using Android.Content;
 [assembly: ExportRenderer(typeof(SearchBar), typeof(DarkSearchBarRenderer))]
 namespace SpareParts.Mobile.Droid.Renderers
 {
+    // https://forums.xamarin.com/discussion/67506/is-it-possible-to-hide-suggestions-in-android-keyboard
     public class DarkSearchBarRenderer : SearchBarRenderer
     {
         public DarkSearchBarRenderer(Context context): base(context)
