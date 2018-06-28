@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 using SpareParts.Mobile.Common;
 using GalaSoft.MvvmLight.Ioc;
 using SpareParts.Mobile.Services;
+using Microsoft.AppCenter.Analytics;
+using System.Collections.Generic;
+using Microsoft.AppCenter.Crashes;
 
 namespace SpareParts.Mobile.ViewModels
 {
@@ -72,8 +75,13 @@ namespace SpareParts.Mobile.ViewModels
         {
         }
 
-        protected async Task ShowErrorAsync(string message, Exception ex = null)
+        protected async Task ShowErrorAsync(string message, Exception error = null)
         {
+            Crashes.TrackError(error, new Dictionary<string, string>
+            {
+                ["Message"] = message
+            });
+
             DialogService.HideLoading();
             await DialogService.AlertAsync(message, "Errore imprevisto");
         }

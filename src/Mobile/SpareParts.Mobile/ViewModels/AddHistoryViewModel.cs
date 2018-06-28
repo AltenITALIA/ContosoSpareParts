@@ -16,6 +16,7 @@ using SpareParts.ApiModel.Vehicles;
 using CustomVisionClient;
 using SpareParts.Mobile.Models;
 using CustomVisionClient.Models;
+using Microsoft.AppCenter.Analytics;
 
 namespace SpareParts.Mobile.ViewModels
 {
@@ -100,6 +101,12 @@ namespace SpareParts.Mobile.ViewModels
 
         private async Task UploadAsync()
         {
+            Analytics.TrackEvent("Add History", new Dictionary<string, string>
+            {
+                ["VehicleId"] = vehicle.Id,
+                ["Part"] = recognition.Tag,
+            });
+
             DialogService.ShowLoading("Caricamento in corso, attendere...");
 
             try
