@@ -18,14 +18,12 @@
         <input [(ngModel)]="vehicle.plate" required matInput #input maxlength="20" placeholder="Enter a plate" name="plate">
         <mat-hint align="end">{{input.value?.length || 0}}/20</mat-hint>
       </mat-form-field>
-      <mat-form-field hintLabel="Max 20 characters">
-        <input [(ngModel)]="vehicle.color" matInput #input maxlength="20" placeholder="Enter a color" name="color">
-        <mat-hint align="end">{{input.value?.length || 0}}/20</mat-hint>
+      <mat-form-field >
+          <input [(ngModel)]="vehicle.color" [(colorPicker)]="vehicle.color" [style.background]="vehicle.color" matInput name="color"/>
       </mat-form-field>
       <mat-form-field>
-        <input [(ngModel)]="vehicle.year" matInput [matDatepicker]="myDatepicker" name="year">
-        <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
-        <mat-datepicker #myDatepicker></mat-datepicker>
+        <input [(ngModel)]="vehicle.year" matInput #input maxlength="4" placeholder="Enter a year" name="year">
+        <mat-hint align="end">{{input.value?.length || 0}}/4</mat-hint>
       </mat-form-field>
     </form>
   </div>

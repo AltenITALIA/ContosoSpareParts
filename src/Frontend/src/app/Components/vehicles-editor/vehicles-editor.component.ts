@@ -1,6 +1,6 @@
-import { Component, OnInit, Inject, Input } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material'
-import { vehicle } from '../../models/vehicle'
+import { Vehicle } from '../../models/vehicle'
 @Component({
   selector: 'app-vehicles-editor',
   templateUrl: './vehicles-editor.component.html',
@@ -8,7 +8,7 @@ import { vehicle } from '../../models/vehicle'
 })
 export class VehiclesEditorComponent implements OnInit {
 
-  vehicle: vehicle = new vehicle();
+  vehicle: Vehicle = new Vehicle();
   title = 'Create new vehicle';
   canSave = false;
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private dialogRef: MatDialogRef<VehiclesEditorComponent>) { }
