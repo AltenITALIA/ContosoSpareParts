@@ -1,0 +1,18 @@
+<h2 mat-dialog-title>Contoso Spare Parts</h2>
+<mat-dialog-content>
+  <div>
+    <h1>Do you want delete the following vehicle?</h1>
+    <p>
+      <span>model: </span>
+      <span>{{data.model}}</span>
+    </p>
+    <p>
+      <span>brand: </span>
+      <span>{{data.brand}}</span>
+    </p>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button (click)="delete()" cdkFocusInitial>Ok</button>
+</mat-dialog-actions>

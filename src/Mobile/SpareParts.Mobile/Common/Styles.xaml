@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?Mapping compile="true"  ?>
+<ResourceDictionary
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core">
+
+    <Color x:Key="DefaultColor">#C2185B</Color>
+    <Color x:Key="StatusBarColor">#C2185B</Color>
+    <Color x:Key="MainContentBackgroundColor">#424242</Color>
+
+    <Color x:Key="TextColorWithDarkBackground">White</Color>
+    <Color x:Key="TextColorWithLightBackground">Black</Color>
+    <Color x:Key="PlaceholderWithDarkBackground">LightGray</Color>
+    <Color x:Key="PlaceholderWithLightBackground">DarkGray</Color>
+
+    <Color x:Key="VehicleListBarColor">#C2175B</Color>
+    <Color x:Key="VehicleListBackgroundColor">#414141</Color>
+    <Color x:Key="VehicleListAlternateBackgroundColor">#4F4F4F</Color>
+    <Color x:Key="VehicleListLabelStyleColor">#C6C6C6</Color>
+    <Color x:Key="VehicleListLabelValueStyleColor">#C7C7C7</Color>
+
+    <Style x:Key="VehicleListLabelStyle" TargetType="Span">
+        <Setter Property="TextColor" Value="{StaticResource VehicleListLabelStyleColor}" />
+        <Setter Property="FontSize" Value="13" />
+    </Style>
+
+    <Style x:Key="VehicleListLabelValueStyle" TargetType="Span">
+        <Setter Property="TextColor" Value="{StaticResource VehicleListLabelValueStyleColor}" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="FontSize" Value="14" />
+    </Style>
+
+    <Style ApplyToDerivedTypes="True" TargetType="ContentPage">
+        <Setter Property="BackgroundColor" Value="{StaticResource MainContentBackgroundColor}" />
+    </Style>
+
+    <Style TargetType="NavigationPage">
+        <Setter Property="BarBackgroundColor" Value="{StaticResource DefaultColor}" />
+        <Setter Property="BarTextColor" Value="{StaticResource TextColorWithDarkBackground}" />
+    </Style>
+
+    <Style x:Key="MasterGridStyle" TargetType="Grid">
+        <Setter Property="BackgroundColor" Value="{StaticResource MainContentBackgroundColor}" />
+        <Setter Property="RowSpacing" Value="0" />
+    </Style>
+
+    <Style x:Key="ContentListGridStyle" TargetType="Grid">
+        <Setter Property="Padding" Value="0,5,0,0" />
+    </Style>
+
+    <Style x:Key="ContentGridStyle" TargetType="Grid">
+        <Setter Property="Padding" Value="16,16,16,16" />
+        <Setter Property="Margin">
+            <Setter.Value>
+                <OnPlatform x:TypeArguments="Thickness">
+                    <On Platform="UWP">16,0,0,0</On>
+                    <On Platform="Android, iOS">0,0,0,0</On>
+                </OnPlatform>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="ffimageloading:CachedImage">
+        <Setter Property="Aspect" Value="AspectFit" />
+        <Setter Property="DownsampleToViewSize" Value="true" />
+    </Style>
+
+    <Style TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource TextColorWithDarkBackground}" />
+        <Setter Property="FontSize" Value="16" />
+    </Style>
+
+    <Style x:Key="CaptionLabelStyle" TargetType="Label">
+        <Setter Property="FontAttributes" Value="Bold" />
+    </Style>
+
+    <Style TargetType="Switch">
+        <Setter Property="WidthRequest" Value="50" />
+    </Style>
+
+    <Style TargetType="SearchBar">
+        <Setter Property="TextColor" Value="{StaticResource TextColorWithDarkBackground}" />
+        <Setter Property="PlaceholderColor" Value="{StaticResource PlaceholderWithDarkBackground}" />
+        <Setter Property="CancelButtonColor" Value="{StaticResource TextColorWithDarkBackground}" />
+    </Style>
+
+    <Style TargetType="Entry">
+        <Setter Property="TextColor" Value="{StaticResource TextColorWithDarkBackground}" />
+        <Setter Property="PlaceholderColor" Value="{StaticResource PlaceholderWithDarkBackground}" />
+        <Setter Property="BackgroundColor" Value="Transparent" />
+    </Style>
+
+    <Style x:Key="SwitchLabelStyle" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource TextColorWithDarkBackground}" />
+        <Setter Property="VerticalOptions" Value="Center" />
+    </Style>
+
+    <Style TargetType="ListView">
+        <Setter Property="BackgroundColor" Value="{StaticResource MainContentBackgroundColor}" />
+        <Setter Property="Footer" Value="" />
+        <Setter Property="SeparatorColor" Value="{StaticResource TextColorWithDarkBackground}" />
+        <Setter Property="ios:ListView.SeparatorStyle" Value="FullWidth" />
+        <Setter Property="SelectionMode" Value="None" />
+        <Setter Property="HasUnevenRows" Value="True" />
+    </Style>
+
+    <Style TargetType="ActivityIndicator">
+        <Setter Property="Color" Value="{DynamicResource DefaultColor}" />
+        <Setter Property="HorizontalOptions">
+            <Setter.Value>
+                <OnPlatform x:TypeArguments="LayoutOptions">
+                    <On Platform="Android, iOS">CenterAndExpand</On>
+                    <On Platform="UWP">FillAndExpand</On>
+                </OnPlatform>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="VerticalOptions">
+            <Setter.Value>
+                <OnPlatform x:TypeArguments="LayoutOptions">
+                    <On Platform="Android, iOS">CenterAndExpand</On>
+                    <On Platform="UWP">FillAndExpand</On>
+                </OnPlatform>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="Frame">
+        <Setter Property="CornerRadius" Value="0" />
+        <Setter Property="HasShadow" Value="False" />
+    </Style>
+</ResourceDictionary>
+

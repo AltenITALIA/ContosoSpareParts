@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  spareparts.vehicle.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "80"
+
+  spareparts.part.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "80"
+

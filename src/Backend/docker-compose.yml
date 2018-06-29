@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  spareparts.vehicle.api:
+    image: ${DOCKER_REGISTRY}sparepartsvehicleapi
+    build:
+      context: .
+      dockerfile: SpareParts.Vehicle.Api/Dockerfile
+
+  spareparts.part.api:
+    image: ${DOCKER_REGISTRY}sparepartspartapi
+    build:
+      context: .
+      dockerfile: SpareParts.Part.Api/Dockerfile
+
