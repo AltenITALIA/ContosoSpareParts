@@ -1,0 +1,8 @@
+<mat-list>
+  <h3 mat-subheader>history</h3>
+  <mat-list-item *ngFor="let historyItem of vehicleHistoryItems">
+    <mat-icon mat-list-icon>folder</mat-icon>
+    <h4 mat-line>{{historyItem.date | date}}</h4>
+    <p mat-line> {{historyItem.partCode }} </p>
+  </mat-list-item>
+</mat-list>
