@@ -109,7 +109,7 @@ namespace SpareParts.Part.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> Post(
             [FromServices] IBus bus,
-            [Required] [FromBody] PostModel model)
+            [Required]PostModel model)
         {
             // Hack: just for testing claims into the command handler
             HttpContext.User = new ClaimsPrincipal(new ClaimsIdentity(new[] {new Claim(ClaimsIdentity.DefaultNameClaimType, "test")}, "test"));
