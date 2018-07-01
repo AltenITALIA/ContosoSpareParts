@@ -11,7 +11,7 @@ using SpareParts.Repository;
 
 namespace SpareParts.Part.Cqrs.Handlers
 {
-    public class PartHandlers : IHandleMessages<AddPartCommand>
+    public class PartHandlers : IHandleMessages<AddPartCommand>, IHandleMessages<RemovePartCommand>
     {
         private readonly ILogger<PartHandlers> _logger;
         private readonly IBus _bus;
@@ -51,6 +51,15 @@ namespace SpareParts.Part.Cqrs.Handlers
             await _bus.Publish(new PartAddedEvent { PartCode = command.Code });
         }
 
+        public async Task Handle(RemovePartCommand command)
+        {
+            DomainModel.Part part = await _repository.GetAsync(command.Code);
+            if (part == null)
+            {
+                return;
+            }
+            await _repository.RemoveAsync(part);
+        }
     }
 
 }

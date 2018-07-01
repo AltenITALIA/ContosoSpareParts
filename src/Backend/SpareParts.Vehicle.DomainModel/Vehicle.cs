@@ -34,7 +34,7 @@ namespace SpareParts.Vehicle.DomainModel
                 if (string.IsNullOrWhiteSpace(value)) throw new ArgumentException("Value cannot be null or whitespace.", nameof(value));
                 if (value.Length > 255) throw new ArgumentException("Value cannot exceed 255 characters.", nameof(value));
 
-                _brand = value.Titleize();
+                _brand = value;
             }
         }
 
@@ -46,7 +46,7 @@ namespace SpareParts.Vehicle.DomainModel
                 if (string.IsNullOrWhiteSpace(value)) throw new ArgumentException("Value cannot be null or whitespace.", nameof(value));
                 if (value.Length > 255) throw new ArgumentException("Value cannot exceed 255 characters.", nameof(value));
 
-                _model = value.Titleize();
+                _model = value;
             }
         }
 
@@ -70,7 +70,7 @@ namespace SpareParts.Vehicle.DomainModel
                 if (string.IsNullOrWhiteSpace(value)) throw new ArgumentException("Value cannot be null or whitespace.", nameof(value));
                 if (value.Length > 20) throw new ArgumentException("Value cannot exceed 255 characters.", nameof(value));
 
-                _plate = value.Titleize();
+                _plate = value.ToUpper();
             }
         }
 
@@ -82,7 +82,7 @@ namespace SpareParts.Vehicle.DomainModel
                 if (string.IsNullOrWhiteSpace(value)) throw new ArgumentException("Value cannot be null or whitespace.", nameof(value));
                 if (value.Length > 20) throw new ArgumentException("Value cannot exceed 255 characters.", nameof(value));
 
-                _color = value.Titleize();
+                _color = value;
             }
         }
         public long Year

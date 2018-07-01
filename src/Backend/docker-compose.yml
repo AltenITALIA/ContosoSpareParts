@@ -13,3 +13,8 @@ services:
       context: .
       dockerfile: SpareParts.Part.Api/Dockerfile
 
+  mssql:
+    image: "microsoft/mssql-server-linux"
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_PID: "Express"

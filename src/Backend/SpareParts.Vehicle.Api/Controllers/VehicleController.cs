@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Rebus;
 using Rebus.Bus;
 using SpareParts.DataAccessObject;
+using SpareParts.Repository;
 using SpareParts.Vehicle.Api.Models.Vehicle;
 using SpareParts.Vehicle.Cqrs.Commands;
 
@@ -39,14 +40,27 @@ namespace SpareParts.Vehicle.Api.Controllers
             return vehicleDataAccessObject.Where(p => p.Plate.Contains(plate)).ProjectTo<GetModel>(mapper.ConfigurationProvider);
         }
 
+        // DELETE api/vehicle/{id}
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(
+            [FromServices]IBus bus,
+            string id)
+        {
+            var command = new RemoveVehicleCommand(id);
+
+            await bus.Send(command);
+
+            return Ok();
+        }
+
         // GET api/vehicle/{id}
         [HttpGet("{id}")]
         public IActionResult Get(
-            [FromServices]IDataAccessObject<ReadModel.Vehicle> suggestionsDataAccessObject,
+            [FromServices]IDataAccessObject<ReadModel.Vehicle> vehicleDataAccessObject,
             [FromServices]IMapper mapper,
             string id)
         {
-            GetModel result = suggestionsDataAccessObject.Where(d => d.Id == id)
+            GetModel result = vehicleDataAccessObject.Where(d => d.Id == id)
                 .ProjectTo<GetModel>(mapper.ConfigurationProvider)
                 .FirstOrDefault();
             if (result == null)
@@ -61,7 +75,7 @@ namespace SpareParts.Vehicle.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> Post(
                 [FromServices] IBus bus,
-                [Required, FromBody]PostModel model)
+                [Required]PostModel model)
         {
             // Hack: just for testing claims into the command handler
             HttpContext.User = new ClaimsPrincipal(new ClaimsIdentity(new[] { new Claim(ClaimsIdentity.DefaultNameClaimType, "test") }, "test"));
