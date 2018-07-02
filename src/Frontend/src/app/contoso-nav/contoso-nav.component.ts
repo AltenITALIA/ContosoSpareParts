@@ -12,7 +12,8 @@ import { environment } from '../../environments/environment';
 })
 export class ContosoNavComponent {
 
-
+  public version: string = environment.VERSION;
+  
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches)

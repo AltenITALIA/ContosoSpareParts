@@ -10,7 +10,9 @@ export const environment = {
   getPartUrl:'https://contoso-spare-parts.azure-api.net/parts/',
   addPartUrl:'https://contoso-spare-parts.azure-api.net/parts/',
   getHistoryUrl:'https://contoso-spare-parts.azure-api.net/history/byVehicle/',
-  getVehicleByPlate:'https://contoso-spare-parts.azure-api.net/vehicles/byPlate/'
+  getVehicleByPlate:'https://contoso-spare-parts.azure-api.net/vehicles/byPlate/',
+
+  VERSION: require('../../package.json').version
 };
 
 /*
