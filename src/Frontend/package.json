@@ -8,7 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "test-single-headless": "ng test --single-run=true --browsers=PhantomJS --reporters=progress,junit"
+    "test-single-headless": "ng test --watch=false --browsers=PhantomJS --reporters=progress,junit",
+    "postinstall": "node version.js"
   },
   "private": true,
   "dependencies": {
@@ -37,7 +38,7 @@
     "@angular/language-service": "^6.0.3",
     "@types/jasmine": "~2.8.6",
     "@types/jasminewd2": "~2.0.3",
-    "@types/node": "~8.9.4",
+    "@types/node": "^8.10.20",
     "codelyzer": "~4.2.1",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
