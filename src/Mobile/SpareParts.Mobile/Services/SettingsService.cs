@@ -26,13 +26,13 @@ namespace SpareParts.Mobile.Services
 
         public string PredictionKey
         {
-            get => settings.GetValueOrDefault(PREDICTION_KEY, ServiceKeys.CustomVisionPredictionKey);
+            get => settings.GetValueOrDefault(PREDICTION_KEY, null);
             set => settings.AddOrUpdateValue(PREDICTION_KEY, value);
         }
 
         public string ProjectId
         {
-            get => settings.GetValueOrDefault(PROJECT_ID, ServiceKeys.CustomVisionProjectId);
+            get => settings.GetValueOrDefault(PROJECT_ID, null);
             set => settings.AddOrUpdateValue(PROJECT_ID, value);
         }
     }
