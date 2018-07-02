@@ -8,8 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "test-single-headless": "ng test --watch=false --browsers=PhantomJS --reporters=progress,junit",
-    "postinstall": "node version.js"
+    "test-single-headless": "ng test --watch=false --browsers=PhantomJS --reporters=progress,junit"
   },
   "private": true,
   "dependencies": {
