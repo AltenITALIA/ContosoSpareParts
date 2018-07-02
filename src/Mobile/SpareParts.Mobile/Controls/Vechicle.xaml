@@ -84,7 +84,7 @@
             <BoxView WidthRequest="30" Color="{StaticResource VehicleListBarColor}">
                 <BoxView.Margin>
                     <OnPlatform x:TypeArguments="Thickness">
-                        <On Platform="iOS">0,5,0,0</On>
+                        <On Platform="iOS">0,5,0,5</On>
                     </OnPlatform>
                 </BoxView.Margin>
             </BoxView>
