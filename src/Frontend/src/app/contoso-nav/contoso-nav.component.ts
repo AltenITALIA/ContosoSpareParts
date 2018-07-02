@@ -3,6 +3,7 @@ import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/l
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { MatIconRegistry } from '@angular/material';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'contoso-nav',
@@ -11,13 +12,14 @@ import { MatIconRegistry } from '@angular/material';
 })
 export class ContosoNavComponent {
 
+
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches)
     );
 
   constructor(private breakpointObserver: BreakpointObserver, iconRegistry: MatIconRegistry) {
-
+  
     iconRegistry.registerFontClassAlias("fontawesome", "fa");
   }
 
