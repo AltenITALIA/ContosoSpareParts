@@ -24,7 +24,7 @@ namespace SpareParts.Mobile.Services
         {
             var permissions = await permissionService.CheckMultipleAsync(Permission.Camera, Permission.Storage);
             if (permissions.TryGetValue(Permission.Camera, out var cameraPermissionStatus) && cameraPermissionStatus == PermissionStatus.Granted
-                && permissions.TryGetValue(Permission.Storage, out var storagePermissionStattus) && storagePermissionStattus == PermissionStatus.Granted)
+                && permissions.TryGetValue(Permission.Storage, out var storagePermissionStatus) && storagePermissionStatus == PermissionStatus.Granted)
             {
                 // Take a photo using the camera.
                 var file = await media.TakePhotoAsync(new StoreCameraMediaOptions
@@ -46,7 +46,7 @@ namespace SpareParts.Mobile.Services
         {
             var permissions = await permissionService.CheckMultipleAsync(Permission.Photos, Permission.Storage);
             if (permissions.TryGetValue(Permission.Photos, out var photosPermissionStatus) && photosPermissionStatus == PermissionStatus.Granted
-                && permissions.TryGetValue(Permission.Storage, out var storagePermissionStattus) && storagePermissionStattus == PermissionStatus.Granted)
+                && permissions.TryGetValue(Permission.Storage, out var storagePermissionStatus) && storagePermissionStatus == PermissionStatus.Granted)
             {
                 // Pick a photo from the gallery.
                 var file = await media.PickPhotoAsync(new PickMediaOptions
