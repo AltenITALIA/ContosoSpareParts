@@ -1,7 +1,20 @@
+<mat-card>
+  <mat-card-header>
+      <div [ngStyle]="vehicle.color | safeColor" mat-card-avatar></div>
+    <mat-card-title>{{vehicle.model}}</mat-card-title>
+    <mat-card-subtitle>{{vehicle.brand}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>{{vehicle.customer}}</p>
+    <p>{{vehicle.plate}}</p>
+    <p>{{vehicle.year}}</p>
+  </mat-card-content>
+</mat-card>
+
 <mat-list>
   <h3 mat-subheader>history</h3>
   <mat-list-item *ngFor="let historyItem of vehicleHistoryItems">
-    <mat-icon mat-list-icon>folder</mat-icon>
+    <mat-icon mat-list-icon>bubble_chart</mat-icon>
     <h4 mat-line>{{historyItem.date | date}}</h4>
     <p mat-line> {{historyItem.partCode }} </p>
   </mat-list-item>

@@ -4,6 +4,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, tap } from 'rxjs/operators';
 import { Observable, of, observable } from 'rxjs';
 import { environment } from '../../environments/environment';
+import { AppInsightsService } from '@markpieszak/ng-application-insights';
+import { BaseService } from './base-service';
 
 
 const httpOptions = {
@@ -15,9 +17,9 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
-export class VehiclesService {
+export class VehiclesService extends BaseService {
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient,  appInsightsService: AppInsightsService) { super(appInsightsService); }
 
   getVehicles(): Observable<Vehicle[]> {
     return this.httpClient.get<Vehicle[]>(environment.getVehicleUrl).pipe(
@@ -47,13 +49,6 @@ export class VehiclesService {
         catchError(this.handleError<Vehicle>('cant delete vehicle')
       )
     )
-  }
-  
-  private handleError<T>(operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-      console.error("error on:",error);
-      return of(result as T);
-    };
   }
 }
 

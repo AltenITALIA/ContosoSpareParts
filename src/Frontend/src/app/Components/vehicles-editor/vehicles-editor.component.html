@@ -4,26 +4,26 @@
     <form  #heroForm="ngForm" class="example-container">
       <mat-form-field hintLabel="Max 50 characters">
         <input [(ngModel)]="vehicle.brand" required matInput #input maxlength="50" placeholder="Enter a brand" name="brand">
-        <mat-hint align="end">{{input.value?.length || 0}}/50</mat-hint>
+        <mat-hint align="end">{{vehicle.brand?.length || 0}}/50</mat-hint>
       </mat-form-field>
       <mat-form-field hintLabel="Max 50 characters">
         <input [(ngModel)]="vehicle.model" required  matInput #input maxlength="50" placeholder="Enter a model" name="model">
-        <mat-hint align="end">{{input.value?.length || 0}}/50</mat-hint>
+        <mat-hint align="end">{{vehicle.model?.length || 0}}/50</mat-hint>
       </mat-form-field>
       <mat-form-field hintLabel="Max 200 characters">
         <input [(ngModel)]="vehicle.customer" matInput #input maxlength="200" placeholder="Enter a customer name" name="custromer">
-        <mat-hint align="end">{{input.value?.length || 0}}/200</mat-hint>
+        <mat-hint align="end">{{vehicle.customer?.length || 0}}/200</mat-hint>
       </mat-form-field>
       <mat-form-field hintLabel="Max 20 characters">
         <input [(ngModel)]="vehicle.plate" required matInput #input maxlength="20" placeholder="Enter a plate" name="plate">
-        <mat-hint align="end">{{input.value?.length || 0}}/20</mat-hint>
+        <mat-hint align="end">{{vehicle.plate?.length || 0}}/20</mat-hint>
       </mat-form-field>
       <mat-form-field >
           <input [(ngModel)]="vehicle.color" [(colorPicker)]="vehicle.color" [style.background]="vehicle.color" matInput name="color"/>
       </mat-form-field>
       <mat-form-field>
         <input [(ngModel)]="vehicle.year" matInput #input maxlength="4" placeholder="Enter a year" name="year">
-        <mat-hint align="end">{{input.value?.length || 0}}/4</mat-hint>
+        <mat-hint align="end">{{vehicle.year?.length || 0}}/4</mat-hint>
       </mat-form-field>
     </form>
   </div>

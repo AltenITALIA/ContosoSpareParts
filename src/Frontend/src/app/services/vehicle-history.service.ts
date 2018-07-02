@@ -5,24 +5,18 @@ import { catchError, tap } from 'rxjs/operators';
 import { Observable, of, observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { HistoryItem } from '../models/historyItem';
+import { BaseService } from './base-service';
+import { AppInsightsService } from '@markpieszak/ng-application-insights';
 @Injectable({
   providedIn: 'root'
 })
-export class VehicleHistoryService {
+export class VehicleHistoryService  extends BaseService  {
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient,  appInsightsService: AppInsightsService) { super(appInsightsService); }
   getHistoryByVehicleId(id:string): Observable<HistoryItem[]> {
     return this.httpClient.get<HistoryItem[]>(`${environment.getHistoryUrl}${id}`).pipe(
       tap(history => console.info('fetch history:',`${environment.getHistoryUrl}${id}`)),
         catchError(this.handleError('cant load history', []))
     ) as Observable<HistoryItem[]>;
   }
-
-  private handleError<T>(operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-      console.error("error on:",error);
-      return of(result as T);
-    };
-  }
-
 }
