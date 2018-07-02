@@ -49,4 +49,5 @@ it('should return expected vehicleId (HttpClient called once)', () => {
      fail
   );
   expect(httpClientSpy.post.calls.count()).toBe(1, 'one call');
+  
 });

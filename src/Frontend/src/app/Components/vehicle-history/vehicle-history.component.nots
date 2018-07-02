@@ -13,8 +13,9 @@ import { Vehicle } from '../../models/vehicle';
 })
 export class VehicleHistoryComponent implements OnInit {
 
-  
-vehicleHistoryItems : HistoryItem[];
+
+  vehicleHistoryItems: HistoryItem[];
+  vehicle: Vehicle;
   constructor(private location: Location,
     private route: ActivatedRoute,
     private vehicleService: VehiclesService,
@@ -26,17 +27,17 @@ vehicleHistoryItems : HistoryItem[];
   }
 
   getVehicleHistroy(): void {
-    const plate = this.route.snapshot.paramMap.get('id');
+    let plate = this.route.snapshot.paramMap.get('id');
     this.vehicleService.getVehiclesByPlate(plate)
-    .subscribe(
-      vehicles => this.vehicleHistoryService.getHistoryByVehicleId(vehicles[0].id)
       .subscribe(
-        historyItems =>{ 
-
-          this.vehicleHistoryItems = historyItems;
-        }
-      )
-    );
-   
+        vehicles => {
+          this.vehicle = vehicles[0];
+          this.vehicleHistoryService.getHistoryByVehicleId(vehicles[0].id)
+          .subscribe(
+            historyItems => {
+              this.vehicleHistoryItems = historyItems;
+            });
+          }
+      );
   }
 }
