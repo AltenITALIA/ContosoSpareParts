@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<?Mapping compile="true"  ?>
+<?Mapping compile="true"   ?>
 <ResourceDictionary
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -76,10 +76,6 @@
         <Setter Property="FontAttributes" Value="Bold" />
     </Style>
 
-    <Style TargetType="Switch">
-        <Setter Property="WidthRequest" Value="50" />
-    </Style>
-
     <Style TargetType="SearchBar">
         <Setter Property="TextColor" Value="{StaticResource TextColorWithDarkBackground}" />
         <Setter Property="PlaceholderColor" Value="{StaticResource PlaceholderWithDarkBackground}" />
@@ -90,11 +86,6 @@
         <Setter Property="TextColor" Value="{StaticResource TextColorWithDarkBackground}" />
         <Setter Property="PlaceholderColor" Value="{StaticResource PlaceholderWithDarkBackground}" />
         <Setter Property="BackgroundColor" Value="Transparent" />
-    </Style>
-
-    <Style x:Key="SwitchLabelStyle" TargetType="Label">
-        <Setter Property="TextColor" Value="{StaticResource TextColorWithDarkBackground}" />
-        <Setter Property="VerticalOptions" Value="Center" />
     </Style>
 
     <Style TargetType="ListView">
