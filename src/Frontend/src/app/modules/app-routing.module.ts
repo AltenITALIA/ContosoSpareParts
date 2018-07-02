@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from '../components/dashboard/dashboard.component';
 import { VehiclesComponent } from '../components/vehicles/vehicles.component';
 import { PartsComponent } from '../components/parts/parts.component';
-import { VeicleHistoryComponent } from '../components/veicle-history/veicle-history.component';
+import { VehicleHistoryComponent } from '../components/vehicle-history/vehicle-history.component';
 
 
 const routes: Routes = [
@@ -11,7 +11,8 @@ const routes: Routes = [
   { path: 'vehicles', component: VehiclesComponent },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'parts', component: PartsComponent },
-  { path: 'history', component: VeicleHistoryComponent }
+  { path: 'history/:id', component: VehicleHistoryComponent }
+
 ];
 
 @NgModule({

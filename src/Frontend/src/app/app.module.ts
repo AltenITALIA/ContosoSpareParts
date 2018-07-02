@@ -9,7 +9,6 @@ import { AppRoutingModule } from './modules/app-routing.module';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { VehiclesComponent } from './components/vehicles/vehicles.component';
 import { PartsComponent } from './components/parts/parts.component';
-import { VeicleHistoryComponent } from './components/veicle-history/veicle-history.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ProgressComponent } from './components/progress/progress.component';
 import { ContosoHttpInterceptor } from '../app/services/contoso-http-interceptor';
@@ -18,6 +17,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { VehicleDeleteDialogComponent } from './components/vehicle-delete-dialog/vehicle-delete-dialog.component';
 import { ColorPickerModule } from 'ngx-color-picker';
 import {safeColor} from '../app/pipes/safeColor';
+import { VehicleHistoryComponent } from './components/vehicle-history/vehicle-history.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,11 +25,11 @@ import {safeColor} from '../app/pipes/safeColor';
     DashboardComponent,
     VehiclesComponent,
     PartsComponent,
-    VeicleHistoryComponent,
     ProgressComponent,
     VehiclesEditorComponent,
     VehicleDeleteDialogComponent,
-    safeColor
+    safeColor,
+    VehicleHistoryComponent,
   ],
   imports: [
     BrowserModule,

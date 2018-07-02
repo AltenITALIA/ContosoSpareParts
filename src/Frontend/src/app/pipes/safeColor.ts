@@ -5,7 +5,6 @@ export class safeColor {
   constructor(){}
 
   transform(color) {
-   debugger;
     return { 'background-color' : color};
   }
 }

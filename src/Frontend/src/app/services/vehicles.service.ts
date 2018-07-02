@@ -26,6 +26,13 @@ export class VehiclesService {
     ) as Observable<Vehicle[]>;
   }
 
+  getVehiclesByPlate(plate:string): Observable<Vehicle[]> {
+    return this.httpClient.get<Vehicle[]>(`${environment.getVehicleByPlate}${plate}`).pipe(
+      tap(vehicle => console.info('fetch vehicle by plate:',`${environment.getVehicleByPlate}${plate}`)),
+        catchError(this.handleError('cant load vehicle by plate'))
+    ) as Observable<Vehicle[]>;
+  }
+
   addVehicle(newVehicle: Vehicle): Observable<string> {
     return this.httpClient.post<string>(environment.addVehicleUrl, newVehicle, httpOptions).pipe(
       tap(newVehicleID => console.info('add new vehicle')),
