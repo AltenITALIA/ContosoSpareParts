@@ -10,3 +10,4 @@ export class AppComponent {
   title = 'Contoso Spare Parts';
 
 }
+
