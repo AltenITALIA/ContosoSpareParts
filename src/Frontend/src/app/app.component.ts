@@ -7,6 +7,7 @@ import { environment } from '../environments/environment.prod';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  title = 'Contoso Spare Parts';
 
 }
+
