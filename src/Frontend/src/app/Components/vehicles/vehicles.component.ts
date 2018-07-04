@@ -5,6 +5,7 @@ import { MatTableDataSource, MatDialog, MAT_DIALOG_DATA, MatDialogConfig } from 
 import { VehiclesEditorComponent } from '../../components/vehicles-editor/vehicles-editor.component';
 import { SelectionModel } from '@angular/cdk/collections';
 import { VehicleDeleteDialogComponent } from '../../components/vehicle-delete-dialog/vehicle-delete-dialog.component'
+import { AppInsightsService } from '@markpieszak/ng-application-insights';
 @Component({
   selector: 'app-vehicles',
   templateUrl: './vehicles.component.html',
@@ -16,7 +17,7 @@ export class VehiclesComponent implements OnInit {
   vehicles: MatTableDataSource<Vehicle>;
   selection = new SelectionModel<Vehicle>(true, []);
   selectionMode = false;
-  constructor(private vehiclesService: VehiclesService, private matDialod: MatDialog) { }
+  constructor(private vehiclesService: VehiclesService, private matDialod: MatDialog, private appInsightsService: AppInsightsService) { }
 
   ngOnInit() {
     this.getVehicles();
@@ -24,12 +25,16 @@ export class VehiclesComponent implements OnInit {
 
   getVehicles(): void {
     this.vehiclesService.getVehicles()
-      .subscribe(vehicle => this.vehicles = new MatTableDataSource(vehicle));
+      .subscribe(vehicle => {
+        this.appInsightsService.trackEvent("fetch vehicles services");
+        this.vehicles = new MatTableDataSource(vehicle)
+      });
   }
 
   applyFilter(filterValue: string): void {
     filterValue = filterValue.trim();
     filterValue = filterValue.toLowerCase();
+    this.appInsightsService.trackEvent("search for", { key:filterValue});
     this.vehicles.filter = filterValue;
   }
   toggleSelection() {
@@ -47,11 +52,12 @@ export class VehiclesComponent implements OnInit {
         console.log("Dialog output:", data);
         if (data != undefined) {
           this.vehiclesService.addVehicle(data as Vehicle).subscribe(
-            veicleId => {
+            vehicleId => {
               let d = this.vehicles.data;
               d.push(data as Vehicle);
               this.vehicles = new MatTableDataSource(d);
-              console.log("vehicle created with id:", veicleId);
+              this.appInsightsService.trackEvent("create vehicle", {key:JSON.stringify(data)});
+              console.log("vehicle created with id:", vehicleId);
             }
           );
         }

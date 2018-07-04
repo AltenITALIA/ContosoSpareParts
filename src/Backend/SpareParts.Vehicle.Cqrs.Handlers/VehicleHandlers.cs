@@ -14,7 +14,7 @@ using SpareParts.Vehicle.DomainModel;
 
 namespace SpareParts.Vehicle.Cqrs.Handlers
 {
-    public class VehicleHandlers : IHandleMessages<AddVehicleCommand>
+    public class VehicleHandlers : IHandleMessages<AddVehicleCommand>, IHandleMessages<RemoveVehicleCommand>
     {
         private readonly ILogger<VehicleHandlers> _logger;
         private readonly IBus _bus;
@@ -34,6 +34,16 @@ namespace SpareParts.Vehicle.Cqrs.Handlers
             _userAccessor = userAccessor;
             _repository = repository;
             _dataAccessObject = dataAccessObject;
+        }
+
+        public async Task Handle(RemoveVehicleCommand command)
+        {
+            DomainModel.Vehicle vehicle = await _repository.GetAsync(command.Id);
+            if (vehicle == null)
+            {
+                return;
+            }
+            await _repository.RemoveAsync(vehicle);
         }
 
         public async Task Handle(AddVehicleCommand command)

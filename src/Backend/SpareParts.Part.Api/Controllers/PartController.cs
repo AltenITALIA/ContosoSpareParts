@@ -47,11 +47,24 @@ namespace SpareParts.Part.Api.Controllers
             return Ok(result);
         }
 
+        // DELETE api/part/{code}
+        [HttpDelete("{code}")]
+        public async Task<IActionResult> Delete(
+            [FromServices]IBus bus,
+            string code)
+        {
+            var command = new RemovePartCommand(code);
+
+            await bus.Send(command);
+
+            return Ok();
+        }
+
         // POST api/part
         [HttpPost]
         public async Task<IActionResult> Post(
                 [FromServices] IBus bus,
-                [Required, FromBody]PostModel model)
+                [Required]PostModel model)
         {
             // Hack: just for testing claims into the command handler
             HttpContext.User = new ClaimsPrincipal(new ClaimsIdentity(new[] { new Claim(ClaimsIdentity.DefaultNameClaimType, "test") }, "test"));

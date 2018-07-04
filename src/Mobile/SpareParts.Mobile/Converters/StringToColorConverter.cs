@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
@@ -23,6 +24,12 @@ namespace SpareParts.Mobile.Converters
 
             if (value is string input)
             {
+                input = Regex.Replace(input, "\\s+", string.Empty);
+                if (IsHexColor(input))
+                {
+                    input = $"#{input}";
+                }
+
                 try
                 {
                     color = (Color)converter.ConvertFromInvariantString(input);
@@ -39,5 +46,7 @@ namespace SpareParts.Mobile.Converters
         {
             throw new NotImplementedException();
         }
+
+        bool IsHexColor(string number) => Regex.IsMatch(number, "^(?:[0-9a-fA-F]{3}){1,2}$");
     }
 }

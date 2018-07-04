@@ -11,7 +11,7 @@ namespace SpareParts.Mobile.Services
 {
     public class RecognitionService : IRecognitionService
     {
-        private const double MINUMUM_PROBABILITY = 0.8D;
+        private const double MINUMUM_PROBABILITY = 0.70D;
 
         private readonly OnlineClassifier classifer;
         private readonly ISettingsService settingsService;

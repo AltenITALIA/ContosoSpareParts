@@ -26,5 +26,13 @@ body {
    background: #424242;
    margin-bottom: 30px;
  }
+
+ a:link
+ {
+   color: white;
+ }
+a:visited{
+  color: white;
+}
   
   

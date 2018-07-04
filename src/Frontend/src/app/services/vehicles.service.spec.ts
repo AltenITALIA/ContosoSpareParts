@@ -17,13 +17,15 @@ export function asyncError<T>(errorObject: any) {
 
 
 let httpClientSpy: { get: jasmine.Spy, post:jasmine.Spy};
+let appInsightsServiceSpy : {trackException: jasmine.Spy}
 let vehicleService: VehiclesService;
 
 
 beforeEach(() => {
   // TODO: spy on other methods too
   httpClientSpy = jasmine.createSpyObj('HttpClient', ['post', 'get']);
-  vehicleService = new VehiclesService(<any>httpClientSpy, );
+  appInsightsServiceSpy = jasmine.createSpyObj('AppInsightsService',['trackException'])
+  vehicleService = new VehiclesService(<any>httpClientSpy,<any>appInsightsServiceSpy);
 });
 
 it('should return expected vehicles (HttpClient called once)', () => {
@@ -49,4 +51,5 @@ it('should return expected vehicleId (HttpClient called once)', () => {
      fail
   );
   expect(httpClientSpy.post.calls.count()).toBe(1, 'one call');
+  
 });

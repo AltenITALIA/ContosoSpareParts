@@ -6,7 +6,6 @@
       <a mat-list-item routerLink="/dashboard">dashboard</a>
       <a mat-list-item routerLink="/vehicles">vehicles</a>
       <a mat-list-item routerLink="/parts">parts</a>
-      <a mat-list-item routerLink="/history">history</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content style="height: 100vh;">
@@ -16,8 +15,7 @@
           <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
         </button>
         <img src="../../assets/images/contosoLogo.svg" style="width: 35px;margin-right: 15px">
-        <span>contoso spare parts portal</span>
-      
+        <span>{{applicationName}} : {{version}}</span>  
       </mat-toolbar-row>
     </mat-toolbar>
     <div class="mavOutletContainer">
