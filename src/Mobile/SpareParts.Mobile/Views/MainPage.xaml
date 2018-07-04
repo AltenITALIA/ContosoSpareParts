@@ -38,7 +38,7 @@
 
             <SearchBar
                 Grid.Row="0"
-                Placeholder="Cerca..."
+                Placeholder="Ricerca per targa o parte di essa..."
                 SearchCommand="{Binding SearchCommand}"
                 Text="{Binding SearchText}">
                 <SearchBar.Margin>
