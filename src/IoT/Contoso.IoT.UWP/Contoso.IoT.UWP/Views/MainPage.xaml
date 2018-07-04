@@ -14,6 +14,30 @@
             Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
             <!--The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
                 Place your content here.-->
+            <Grid.ColumnDefinitions >
+                <ColumnDefinition Width="60*"/>
+                <ColumnDefinition Width="20*"/>
+                <ColumnDefinition Width="20*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="9*"/>
+                <RowDefinition Height="9*"/>
+                <RowDefinition Height="9*"/>
+                <RowDefinition Height="9*"/>
+                <RowDefinition Height="9*"/>
+                <RowDefinition Height="9*"/>
+                <RowDefinition Height="9*"/>
+                <RowDefinition Height="9*"/>
+                <RowDefinition Height="9*"/>
+                <RowDefinition Height="9*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Sensore" Style="{ThemeResource ListTitleStyle}"
+                       FontSize="{StaticResource LargeFontSize}"/>
+            <TextBlock Grid.Row="0" Grid.Column="1" Text="#" Style="{ThemeResource ListTitleStyle}"
+                       FontSize="{StaticResource LargeFontSize}"/>
+            <TextBlock Grid.Row="0" Grid.Column="2" Text="Note" Style="{ThemeResource ListTitleStyle}"
+                       FontSize="{StaticResource LargeFontSize}"/>
         </Grid>
     </Grid>
 </Page>

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" xmlns:genTemplate="http://schemas.microsoft.com/appx/developer/windowsTemplateStudio" IgnorableNamespaces="uap mp genTemplate">
-  <Identity Name="ABF92E9F-E958-4A01-855C-2929010E6EA8" Publisher="CN=marco" Version="1.0.0.0" />
+  <Identity Name="ABF92E9F-E958-4A01-855C-2929010E6EA8" Publisher="CN=marco" Version="1.0.2.0" />
   <mp:PhoneIdentity PhoneProductId="ABF92E9F-E958-4A01-855C-2929010E6EA8" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>Contoso.IoT.UWP</DisplayName>

@@ -1,2 +1,1 @@
-MainPackage=E:\Dev\Community\DeepDevDay18\src\IoT\Contoso.IoT.UWP\Contoso.IoT.UWP\bin\x86\Debug\Contoso.IoT.UWP_1.0.0.0_x86_Debug.appx
-SymbolPackage=E:\Dev\Community\DeepDevDay18\src\IoT\Contoso.IoT.UWP\Contoso.IoT.UWP\AppPackages\Contoso.IoT.UWP_1.0.0.0_Debug_Test\Contoso.IoT.UWP_1.0.0.0_x86_Debug.appxsym
+MainPackage=E:\Dev\Community\DeepDevDay18\src\IoT\Contoso.IoT.UWP\Contoso.IoT.UWP\bin\x86\Debug\Contoso.IoT.UWP_1.0.2.0_x86_Debug.appx

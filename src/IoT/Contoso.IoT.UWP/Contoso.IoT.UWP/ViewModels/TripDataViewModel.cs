@@ -10,12 +10,12 @@ namespace Contoso.IoT.UWP.ViewModels
 {
     public class TripDataViewModel : ViewModelBase
     {
-        public ObservableCollection<SampleOrder> Source
+        public ObservableCollection<CarMetric> Source
         {
             get
             {
                 // TODO WTS: Replace this with your actual data
-                return SampleDataService.GetGridSampleData();
+                return SampleMetricsService.GetGridMetricsData();
             }
         }
     }

@@ -134,6 +134,7 @@
     <Compile Include="Services\LocationService.cs" />
     <Compile Include="Services\NavigationServiceEx.cs" />
     <Compile Include="Services\OnBackgroundEnteringEventArgs.cs" />
+    <Compile Include="Services\SampleMetricsService.cs" />
     <Compile Include="Services\SampleDataService.cs" />
     <Compile Include="Services\SuspendAndResumeService.cs" />
     <Compile Include="Services\SuspensionState.cs" />
