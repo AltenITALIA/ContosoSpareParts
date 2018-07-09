@@ -1,0 +1,38 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '~@angular/material/prebuilt-themes/pink-bluegrey.css';
+body { 
+  margin: 0;
+  font-family: Roboto, Arial, sans-serif;
+ }
+
+.mavOutletContainer{
+    padding: 30px;
+}
+
+.example-fill-remaining-space {
+    /* This fills the remaining space, by using flexbox. 
+       Every toolbar row uses a flexbox row layout. */
+    flex: 1 1 auto;
+  }
+  .example-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+ .part-container{
+   display: flex;
+   flex-direction: row;
+   background: #424242;
+   margin-bottom: 30px;
+ }
+
+ a:link
+ {
+   color: white;
+ }
+a:visited{
+  color: white;
+}
+  
+  

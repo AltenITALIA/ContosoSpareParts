@@ -1,0 +1,1 @@
+MainPackage=E:\Dev\Community\DeepDevDay18\src\IoT\Contoso.IoT.UWP\Contoso.IoT.UWP\bin\x86\Debug\Contoso.IoT.UWP_1.0.2.0_x86_Debug.appx

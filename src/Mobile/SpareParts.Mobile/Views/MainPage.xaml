@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<common:ContentPageBase
+    x:Class="SpareParts.Mobile.Views.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:behaviors="clr-namespace:SpareParts.Mobile.Behaviors"
+    xmlns:common="clr-namespace:SpareParts.Mobile.Common"
+    xmlns:controls="clr-namespace:SpareParts.Mobile.Controls"
+    xmlns:local="clr-namespace:SpareParts.Mobile"
+    Title="Contoso Spare Parts"
+    BindingContext="{Binding Source={StaticResource Locator}, Path=MainViewModel}">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Command="{Binding SettingsCommand}"
+            Priority="0"
+            Text="Impostazioni...">
+            <ToolbarItem.Order>
+                <OnPlatform x:TypeArguments="ToolbarItemOrder">
+                    <On Platform="Android">Secondary</On>
+                    <On Platform="iOS">Primary</On>
+                </OnPlatform>
+            </ToolbarItem.Order>
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="iOS">Images/settings.png</On>
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <Grid Style="{StaticResource MasterGridStyle}">
+        <Grid Style="{StaticResource ContentListGridStyle}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <SearchBar
+                Grid.Row="0"
+                Placeholder="Ricerca per targa o parte di essa..."
+                SearchCommand="{Binding SearchCommand}"
+                Text="{Binding SearchText}">
+                <SearchBar.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS">0,0,0,0</On>
+                        <On Platform="Android">-15,0,0,0</On>
+                    </OnPlatform>
+                </SearchBar.Margin>
+            </SearchBar>
+
+            <ListView
+                Grid.Row="1"
+                BackgroundColor="{StaticResource VehicleListBackgroundColor}"
+                CachingStrategy="RecycleElement"
+                ItemsSource="{Binding Vehicles}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <controls:Vehicle Margin="0,10,0,0" BindingContext="{Binding .}" />
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.Behaviors>
+                    <behaviors:ListViewItemTappedBehavior Command="{Binding ItemTappedCommand}" />
+                </ListView.Behaviors>
+            </ListView>
+        </Grid>
+
+        <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />
+    </Grid>
+</common:ContentPageBase>

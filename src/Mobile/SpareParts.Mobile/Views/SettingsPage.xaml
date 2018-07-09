@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<common:ContentPageBase
+    x:Class="SpareParts.Mobile.Views.SettingsPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:common="clr-namespace:SpareParts.Mobile.Common"
+    xmlns:local="clr-namespace:SpareParts.Mobile"
+    Title="Impostazioni"
+    BindingContext="{Binding Source={StaticResource Locator}, Path=SettingsViewModel}">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Command="{Binding OpenCustomVisionWebSiteCommand}"
+            Order="Primary"
+            Priority="0"
+            Text="Go to Custom Vision portal">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="Android">ic_action_open_in_browser.png</On>
+                    <On Platform="iOS">Images/open_in_browser.png</On>
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <Grid Style="{StaticResource MasterGridStyle}">
+        <ScrollView Style="{StaticResource ContentGridStyle}">
+            <StackLayout>
+                <Label Style="{StaticResource CaptionLabelStyle}" Text="Custom Vision Prediction Key" />
+                <Entry Placeholder="Inserisci la chiave" Text="{Binding PredictionKey}" />
+                <Label
+                    Margin="0,20,0,0"
+                    Style="{StaticResource CaptionLabelStyle}"
+                    Text="Custom Vision Project Id" />
+                <Entry Placeholder="Inserisci l'Id del progetto" Text="{Binding ProjectId}" />
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+</common:ContentPageBase>
